@@ -107,6 +107,8 @@
 								<Grid HorizontalAlignment="Left"
 									  Margin="0,5">
 									<Grid.RowDefinitions>
+										<RowDefinition MaxHeight="19"/>
+										<RowDefinition Height="Auto" />
 										<RowDefinition />
 										<RowDefinition Height="Auto" />
 									</Grid.RowDefinitions>
@@ -114,19 +116,11 @@
 										<ColumnDefinition Width="Auto" />
 										<ColumnDefinition SharedSizeGroup="Type"
 														  Width="Auto" />
-										<ColumnDefinition SharedSizeGroup="Name" />
-										<ColumnDefinition Width="Auto"
-														  SharedSizeGroup="Level" />
-										<ColumnDefinition Width="Auto"
-														  SharedSizeGroup="HP" />
+										<ColumnDefinition SharedSizeGroup="SlotItems" />
 										<ColumnDefinition Width="Auto"
 														  SharedSizeGroup="Condition" />
 										<ColumnDefinition Width="Auto"
-														  SharedSizeGroup="Resources" />
-										<ColumnDefinition Width="Auto"
-														  SharedSizeGroup="SlotItems" />
-										<ColumnDefinition Width="Auto"
-														  SharedSizeGroup="ExSlotItem" />
+														  SharedSizeGroup="HP" />
 									</Grid.ColumnDefinitions>
 
 
@@ -134,7 +128,8 @@
 											   Grid.Row="0"
 											   Grid.RowSpan="2"
 											   HorizontalAlignment="Right"
-											   Margin="10,0,0,0">
+											   Margin="10,1,0,0"
+											   VerticalAlignment="Top">
 										<Run Text="{Binding Ship.Info.ShipType.Name, Mode=OneWay}"
 											 FontSize="14" />
 										<Run Text=""
@@ -142,26 +137,30 @@
 											 Style="{DynamicResource EmphaticTextElementStyleKey}" />
 									</TextBlock>
 
-									<TextBlock Grid.Column="2"
+									<TextBlock Grid.Column="2"										   
 											   Grid.Row="0"
 											   Grid.RowSpan="2"
-											   Margin="4,0,10,0">
+											   Margin="4,0,10,0"
+											   MaxWidth="170"
+											   TextWrapping="Wrap">
 										<Run Text="{Binding Ship.Info.Name, Mode=OneWay}"
 											 FontSize="22"
 											 Style="{DynamicResource EmphaticTextElementStyleKey}" />
 									</TextBlock>
 
-									<TextBlock Grid.Column="3"
-											   Grid.Row="0"
-											   Margin="10,0,10,10"
-											   Grid.RowSpan="2">
+									<TextBlock Grid.Column="1"
+											   Grid.Row="2"
+											   Margin="10,0,4,10"
+											   Grid.RowSpan="2"
+											   HorizontalAlignment="Right">
 										<Run Text="Lv." />
 										<Run Text="{Binding Ship.Level, Mode=OneWay}"
 											 Style="{DynamicResource EmphaticTextElementStyleKey}" />
 									</TextBlock>
-									<TextBlock Grid.Column="3"
-											   Grid.Row="1"
-											   Margin="10,0,10,-1">
+									<TextBlock Grid.Column="1"
+											   Grid.Row="3"
+											   Margin="10,0,4,-1"
+											   HorizontalAlignment="Right">
 										<Run Text="Next:"
 											 FontSize="9" />
 										<Run Text="{Binding Ship.ExpForNextLevel, Mode=OneWay}"
@@ -173,7 +172,8 @@
 											   Grid.Column="4"
 											   Grid.Row="0"
 											   Margin="10,0,10,10"
-											   Grid.RowSpan="2">
+											   Grid.RowSpan="2"
+											   VerticalAlignment="Top">
 										<Run Text="HP:" />
 										<Run Text="{Binding Ship.HP.Current, Mode=OneWay}"
 											 Style="{DynamicResource EmphaticTextElementStyleKey}" />
@@ -181,11 +181,11 @@
 										<Run Text="{Binding Ship.HP.Maximum, Mode=OneWay}" />
 									</TextBlock>
 									<kcvc:ColorIndicator x:Name="HPIndicator"
-														 Grid.Row="1"
 														 Grid.Column="4"
+														 Grid.Row="1"														 
 														 Height="6"
-														 VerticalAlignment="Bottom"
-														 Margin="10,0,10,2"
+														 VerticalAlignment="Top"
+														 Margin="10,2"
 														 LimitedValue="{Binding Ship.HP, Mode=OneWay}" />
 
 									<Grid x:Name="RepairIndicator"
@@ -214,40 +214,45 @@
 												   HorizontalAlignment="Center" />
 									</Grid>
 
-									<TextBlock Grid.Column="5"
+									<TextBlock Grid.Column="3"
 											   Grid.Row="0"
 											   Margin="10,0,10,10"
-											   Grid.RowSpan="2">
+											   Grid.RowSpan="2"
+											   VerticalAlignment="Top">
 										<InlineUIContainer>
 											<kcvc:ConditionIcon ConditionType="{Binding Ship.ConditionType, Mode=OneWay}" />
 										</InlineUIContainer>
 										<Run Text="{Binding Ship.Condition, Mode=OneWay}"
 											 Style="{DynamicResource EmphaticTextElementStyleKey}" />
 									</TextBlock>
-									<TextBlock Grid.Column="5"
+									<TextBlock Grid.Column="3"
 											   Grid.Row="1"
-											   Margin="10,0,10,-1">
+											   Margin="10,0,10,-1"
+											   VerticalAlignment="Top">
 										<Run Text="condition"
 											 FontSize="9" />
 									</TextBlock>
 
-									<kcvc:ColorIndicator Grid.Column="6"
-														 Grid.Row="0"
+									<kcvc:ColorIndicator Grid.Column="4"
+														 Grid.Row="2"
 														 Width="55"
 														 LimitedValue="{Binding Ship.Fuel, Mode=OneWay}"
 														 Height="6"
 														 Columns="5"
-														 Margin="0,6,0,7" />
-									<kcvc:ColorIndicator Grid.Column="6"
-														 Grid.Row="1"
+														 Margin="10,6,0,7"
+														 HorizontalAlignment="Left"/>
+									<kcvc:ColorIndicator Grid.Column="4"
+														 Grid.Row="3"
 														 Width="55"
 														 LimitedValue="{Binding Ship.Bull, Mode=OneWay}"
 														 Height="6"
 														 Columns="5"
-														 VerticalAlignment="Top" />
+														 VerticalAlignment="Top" 
+														 HorizontalAlignment="Left"
+														 Margin="10,0,0,0"/>
 
-									<ItemsControl Grid.Column="7"
-												  Grid.Row="0"
+									<ItemsControl Grid.Column="2"
+												  Grid.Row="2"
 												  Grid.RowSpan="2"
 												  ItemsSource="{Binding Ship.Slots}"
 												  Margin="7,0">
@@ -365,8 +370,8 @@
 										</ItemsControl.ItemTemplate>
 									</ItemsControl>
 
-									<DockPanel Grid.Column="8"
-											   Grid.Row="0"
+									<DockPanel Grid.Column="3"
+											   Grid.Row="2"
 											   Grid.RowSpan="2"
 											   Visibility="{Binding Ship.ExSlot.Equipped, Converter={StaticResource BooleanToVisibilityConverter}}">
 										<Rectangle Width="1"
