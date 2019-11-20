@@ -36,6 +36,8 @@
 	</i:Interaction.Triggers>
 
 	<ScrollViewer VerticalScrollBarVisibility="Auto"
+				  HorizontalScrollBarVisibility="Hidden"
+				  PreviewMouseWheel="ScrollViewer_PreviewMouseWheel"
 				  PanningMode="Both">
 		<Grid d:DataContext="{d:DesignData /SampleData/FleetsViewModelSampleData.xaml}">
 			<Grid.RowDefinitions>
