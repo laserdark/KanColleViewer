@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Grabacr07.KanColleViewer.Views.Contents.Overview"
+<UserControl x:Class="Grabacr07.KanColleViewer.Views.Contents.Overview"
 			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 			 xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
@@ -87,9 +87,7 @@
 		<Grid>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="*" />
-				<ColumnDefinition Width="220" />
-				<ColumnDefinition Width="Auto"
-								  MinWidth="140" />
+				<ColumnDefinition Width="Auto" />
 			</Grid.ColumnDefinitions>
 
 			<Border VerticalAlignment="Top">
@@ -282,72 +280,72 @@
 					<RowDefinition Height="Auto" />
 				</Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto"
+									  MaxWidth="120"/>
 					<ColumnDefinition Width="Auto" />
-					<ColumnDefinition Width="*" />
 				</Grid.ColumnDefinitions>
 
-				<Border Grid.Row="0"
-						Grid.Column="0">
-					<StackPanel>
-						<TextBlock Text="データ" />
-
-						<Rectangle Height=".99"
+				<StackPanel>
+					<Border>
+						<StackPanel>
+							<TextBlock Text="データ" />
+							
+							<Rectangle Height=".99"
 								   Margin="0,7,0,3"
 								   Style="{DynamicResource SeparatorRectangleStyleKey}" />
 
-						<metro2:CallMethodButton Content="艦娘一覧"
+							<metro2:CallMethodButton Content="艦娘一覧"
 												 Padding="12,8"
 												 Margin="0,5,0,8"
 												 MethodName="ShowShipCatalog" />
-
-						<metro2:CallMethodButton Content="装備一覧"
+		
+							<metro2:CallMethodButton Content="装備一覧"
 												 Padding="12,8"
 												 MethodName="ShowSlotItemCatalog" />
 					</StackPanel>
-				</Border>
+					</Border>
 
-				<metro2:CallMethodButton Grid.Row="0"
-										 Grid.Column="1"
-										 Style="{StaticResource JumbButtonStyleKey}"
+					<metro2:CallMethodButton Style="{StaticResource JumbButtonStyleKey}"
 										 MethodName="Jump"
 										 MethodParameter="Expeditions">
-					<StackPanel DataContext="{Binding Content.Expeditions}">
-						<TextBlock Text="{Binding Name}" />
+						<StackPanel DataContext="{Binding Content.Expeditions}">
+							<TextBlock Text="{Binding Name}" />
 
-						<Rectangle Height=".99"
+							<Rectangle Height=".99"
 								   Margin="0,7,0,3"
 								   Style="{DynamicResource SeparatorRectangleStyleKey}" />
 
-						<ItemsControl ItemsSource="{Binding Fleets.Fleets}">
-							<ItemsControl.ItemTemplate>
-								<DataTemplate>
-									<TextBlock x:Name="Expedition"
-											   Style="{DynamicResource DefaultTextStyleKey}"
-											   Margin="0,4,0,0">
-										<Run Text="{Binding Id, Mode=OneWay, StringFormat=/{0}}"
-											 Style="{DynamicResource EmphaticTextElementStyleKey}" />
-										<Run x:Name="Remaining"
-											 Text="{Binding Expedition.Remaining, StringFormat=- {0}, Mode=OneWay}" />
-									</TextBlock>
-									<DataTemplate.Triggers>
-										<DataTrigger Binding="{Binding Id, Mode=OneWay}"
-													 Value="1">
-											<Setter TargetName="Expedition"
-													Property="Visibility"
-													Value="Collapsed" />
-										</DataTrigger>
-										<DataTrigger Binding="{Binding Expedition.IsInExecution}"
-													 Value="False">
-											<Setter TargetName="Remaining"
-													Property="Text"
-													Value="" />
-										</DataTrigger>
-									</DataTemplate.Triggers>
-								</DataTemplate>
-							</ItemsControl.ItemTemplate>
-						</ItemsControl>
-					</StackPanel>
-				</metro2:CallMethodButton>
+							<ItemsControl ItemsSource="{Binding Fleets.Fleets}">
+								<ItemsControl.ItemTemplate>
+									<DataTemplate>
+										<TextBlock x:Name="Expedition"
+												   Style="{DynamicResource DefaultTextStyleKey}"
+												   Margin="0,4,0,0">
+											<Run Text="{Binding Id, Mode=OneWay, StringFormat=/{0}}"
+												 Style="{DynamicResource EmphaticTextElementStyleKey}" />
+											<Run x:Name="Remaining"
+												 Text="{Binding Expedition.Remaining, StringFormat=- {0}, Mode=OneWay}" />
+										</TextBlock>
+										<DataTemplate.Triggers>
+											<DataTrigger Binding="{Binding Id, Mode=OneWay}"
+														 Value="1">
+												<Setter TargetName="Expedition"
+														Property="Visibility"
+														Value="Collapsed" />
+											</DataTrigger>
+											<DataTrigger Binding="{Binding Expedition.IsInExecution}"
+														 Value="False">
+												<Setter TargetName="Remaining"
+														Property="Text"
+														Value="" />
+											</DataTrigger>
+										</DataTemplate.Triggers>
+									</DataTemplate>
+								</ItemsControl.ItemTemplate>
+							</ItemsControl>
+						</StackPanel>
+					</metro2:CallMethodButton>
+				</StackPanel>
 
 				<metro2:CallMethodButton Grid.Row="1"
 										 Grid.Column="0"
@@ -405,9 +403,8 @@
 						</ItemsControl>
 					</StackPanel>
 				</metro2:CallMethodButton>
-			</Grid>
-
-			<StackPanel Grid.Column="2">
+			
+				<StackPanel Grid.Column="2">
 				<metro2:CallMethodButton Style="{StaticResource JumbButtonStyleKey}"
 										 MethodName="Jump"
 										 MethodParameter="Repairyard">
@@ -511,6 +508,7 @@
 					</StackPanel>
 				</metro2:CallMethodButton>
 			</StackPanel>
+			</Grid>
 		</Grid>
 	</ScrollViewer>
 </UserControl>
