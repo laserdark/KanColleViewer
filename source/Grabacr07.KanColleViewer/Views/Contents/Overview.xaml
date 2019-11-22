@@ -163,7 +163,9 @@
 
 											<TextBlock ToolTipService.Placement="Relative"
 													   ToolTipService.HorizontalOffset="-9"
-													   ToolTipService.VerticalOffset="-3">
+													   ToolTipService.VerticalOffset="-3"
+													   TextWrapping="Wrap"
+													   MaxWidth="100" >
 												<Run Text="{Binding Ship.Info.Name, Mode=OneWay}"
 													 Style="{DynamicResource EmphaticTextElementStyleKey}" />
 												<LineBreak />
@@ -172,7 +174,8 @@
 											</TextBlock>
 
 											<TextBlock Grid.Column="1"
-													   Margin="12,0,0,0">
+													   Margin="12,0,0,0" 
+													   VerticalAlignment="Top">
 												<Run Text="Lv." />
 												<Run Text="{Binding Ship.Level, Mode=OneWay}"
 													 Style="{DynamicResource EmphaticTextElementStyleKey}" />
@@ -222,7 +225,8 @@
 														   HorizontalAlignment="Center" />
 											</Grid>
 
-											<TextBlock Grid.Column="3">
+											<TextBlock Grid.Column="3"
+													   VerticalAlignment="Top">
 												<InlineUIContainer>
 													<kcvc:ConditionIcon ConditionType="{Binding Ship.ConditionType, Mode=OneWay}" />
 												</InlineUIContainer>
@@ -280,13 +284,13 @@
 					<RowDefinition Height="Auto" />
 				</Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="Auto"
-									  MaxWidth="120"/>
+					<ColumnDefinition Width="*"
+									  MaxWidth="115"/>
 					<ColumnDefinition Width="Auto" />
 				</Grid.ColumnDefinitions>
 
 				<StackPanel>
-					<Border>
+					<Border Height="135">
 						<StackPanel>
 							<TextBlock Text="データ" />
 							
@@ -295,13 +299,15 @@
 								   Style="{DynamicResource SeparatorRectangleStyleKey}" />
 
 							<metro2:CallMethodButton Content="艦娘一覧"
-												 Padding="12,8"
-												 Margin="0,5,0,8"
-												 MethodName="ShowShipCatalog" />
+													 Padding="12,8"
+													 Margin="0,5,0,8"
+													 Height="37"
+													 MethodName="ShowShipCatalog" />
 		
 							<metro2:CallMethodButton Content="装備一覧"
-												 Padding="12,8"
-												 MethodName="ShowSlotItemCatalog" />
+													 Padding="12,8"
+													 Height="37"
+													 MethodName="ShowSlotItemCatalog" />
 					</StackPanel>
 					</Border>
 
@@ -352,7 +358,8 @@
 										 Grid.ColumnSpan="2"
 										 Style="{StaticResource JumbButtonStyleKey}"
 										 MethodName="Jump"
-										 MethodParameter="Quests">
+										 MethodParameter="Quests"
+										 MaxWidth="250" >
 					<StackPanel DataContext="{Binding Content.Quests}">
 						<TextBlock Text="{Binding Name}" />
 
