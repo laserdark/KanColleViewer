@@ -290,7 +290,7 @@
 				</Grid.ColumnDefinitions>
 
 				<StackPanel>
-					<Border Height="135">
+					<Border>
 						<StackPanel>
 							<TextBlock Text="データ" />
 							
@@ -301,12 +301,12 @@
 							<metro2:CallMethodButton Content="艦娘一覧"
 													 Padding="12,8"
 													 Margin="0,5,0,8"
-													 Height="37"
+													 Height="39.5"
 													 MethodName="ShowShipCatalog" />
 		
 							<metro2:CallMethodButton Content="装備一覧"
 													 Padding="12,8"
-													 Height="37"
+													 Height="39.5"
 													 MethodName="ShowSlotItemCatalog" />
 					</StackPanel>
 					</Border>
