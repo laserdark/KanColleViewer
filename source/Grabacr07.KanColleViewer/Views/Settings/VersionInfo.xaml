@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Grabacr07.KanColleViewer.Views.Settings.VersionInfo"
+<UserControl x:Class="Grabacr07.KanColleViewer.Views.Settings.VersionInfo"
 			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 			 xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
@@ -85,6 +85,11 @@
 				<LineBreak />
 				<LineBreak />
 
+				<Run Text="Horizontal:" />
+				<metro2:HyperlinkEx Uri="http://bbs.ngacn.cc/nuke.php?func=ucp&amp;uid=8420330">
+								<Run Text="@laserdark" />
+							</metro2:HyperlinkEx>
+				<LineBreak />
 				<Run Text="Developer:" />
 				<metro2:HyperlinkEx Uri="https://twitter.com/Grabacr07">
 					<Run Text="@Grabacr07" />

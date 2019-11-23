@@ -1,0 +1,80 @@
+﻿﻿﻿========================
+	KCV Change Log
+========================
+v4.5.1 r200 2019/11/23
+KanColle HTML5 mode UI布局重构
+	-UI调整
+		-BrowserNavigator.xaml
+			-地址栏宽度修正
+		-Fleets.xaml
+		-Fleets.xaml.cs
+			-【舰队】栏 姓名版布局调整& Shift+鼠标滚轮横向滚动实现
+		-Overview.xaml
+			-【综合】栏 多框体结构布局调整
+
+v4.5.1 r108 2019/11/13
+	-UI调整
+		-ShipCatalogWindow.xaml
+			-舰队列表属性排列微调
+		-Fleets.xaml 
+			-【舰队】栏 额外插槽装备改修可视化
+
+v4.5.1 r107 2018/10/08
+	-BUG修正 & UI调整
+		-_KanColleClientSettings.cs
+		-KanColleSettings.cs
+		-Operation.xaml
+		-IKanColleClientSettings.cs
+		-FleetState.cs
+		-SlotItemType.cs
+		-ViewRange.cs
+			-【33式】索敌公式修正& 增加UI说明
+
+v4.5 r106 2018/09/07
+	-UI调整
+		-ShipCatalogWindow.xaml
+			-舰队列表增加了【海防舰】按钮
+
+v4.2.12 r105 2018/05/29
+	-API修正
+		-kcsapi_battleresult.cs
+		-kcsapi_combined_battle_battleresult.cs
+		-kcsapi_start2.cs
+		-KanColleProxy.Endpoints.cs
+		-Organization.cs
+		-KanColleProxy.Endpoints.tt
+			-为适应[BattleInfoPlugin]插件适配的api
+
+v4.2.11 r104 2017/10/21
+	-BUG修正
+		-AirSuperiorityPotential.cs
+			-喷气式战斗轰炸机制空值计算
+			-爆战改修制空值计算更新
+
+v4.2.7 r102 2016/08/25
+	-BUG修正
+		-插件
+			-重新生成以修正先前版本[HpProgress]插件无效的BUG
+
+v4.2.7β r101 2016/08/05
+	-UI调整
+		-Overview.xaml
+			-【综合】栏 多框体布局微调
+		-Fleets.xaml
+			-【舰队】栏 姓名版布局调整
+
+v4.2.7β r100 2016/07/31
+为14"及以上横版使用调整
+	-UI调整
+		-Overview.xaml
+			-【综合】栏 多框体结构布局调整
+		-Fleets.xaml
+			-【舰队】栏 视窗结构横向滚动栏添加及触控滚动
+		-Expeditions.xaml
+			-【远征】栏 改上下垂直锁定为仅顶部锁定
+	-适应性调整
+		-BrowserNavigator.xaml
+			-增加地址栏最大宽度以适应小屏幕缩放要求
+	-设计人员
+		-StartContent.xmal、VersionInfo.xaml
+			-暂定使用NGA论坛用户ID
