@@ -21,8 +21,8 @@
 			 xmlns:settings="clr-namespace:Grabacr07.KanColleViewer.Models.Settings"
 			 mc:Ignorable="d"
 			 d:DataContext="{d:DesignInstance vmContents:OverviewViewModel}"
-			 d:DesignWidth="680"
-			 d:DesignHeight="333">
+			 d:DesignWidth="800"
+			 d:DesignHeight="660">
 	<UserControl.Resources>
 		<ResourceDictionary>
 			<kcvv:HasFlagConverter x:Key="HasFlagConverter" />
@@ -84,13 +84,19 @@
 
 	<ScrollViewer VerticalScrollBarVisibility="Auto"
 				  PanningMode="Both">
-		<Grid>
+		<Grid MinWidth="300">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="*" />
-				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="Auto"
+									  MaxWidth="120"/>
+				<ColumnDefinition Width="Auto"/>
 			</Grid.ColumnDefinitions>
 
-			<Border VerticalAlignment="Top">
+			<Border Grid.ColumnSpan="2">
 				<DockPanel DataContext="{Binding Content.Fleets}">
 					<ListBox DockPanel.Dock="Top"
 							 ItemsSource="{Binding Fleets}"
@@ -278,131 +284,61 @@
 				</DockPanel>
 			</Border>
 
-			<Grid Grid.Column="1">
-				<Grid.RowDefinitions>
-					<RowDefinition Height="Auto" />
-					<RowDefinition Height="Auto" />
-				</Grid.RowDefinitions>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="*"
-									  MaxWidth="115"/>
-					<ColumnDefinition Width="Auto" />
-				</Grid.ColumnDefinitions>
+			<StackPanel Grid.Row="1">
+				<Border>
+					<StackPanel>
+						<TextBlock Text="データ" />
 
-				<StackPanel>
-					<Border>
-						<StackPanel>
-							<TextBlock Text="データ" />
-							
-							<Rectangle Height=".99"
+						<Rectangle Height=".99"
 								   Margin="0,7,0,3"
 								   Style="{DynamicResource SeparatorRectangleStyleKey}" />
 
-							<metro2:CallMethodButton Content="艦娘一覧"
+						<metro2:CallMethodButton Content="艦娘一覧"
 													 Padding="12,8"
 													 Margin="0,5,0,8"
 													 Height="39.5"
 													 MethodName="ShowShipCatalog" />
-		
-							<metro2:CallMethodButton Content="装備一覧"
+
+						<metro2:CallMethodButton Content="装備一覧"
 													 Padding="12,8"
 													 Height="39.5"
 													 MethodName="ShowSlotItemCatalog" />
 					</StackPanel>
-					</Border>
+				</Border>
 
-					<metro2:CallMethodButton Style="{StaticResource JumbButtonStyleKey}"
+				<metro2:CallMethodButton Style="{StaticResource JumbButtonStyleKey}"
 										 MethodName="Jump"
 										 MethodParameter="Expeditions">
-						<StackPanel DataContext="{Binding Content.Expeditions}">
-							<TextBlock Text="{Binding Name}" />
-
-							<Rectangle Height=".99"
-								   Margin="0,7,0,3"
-								   Style="{DynamicResource SeparatorRectangleStyleKey}" />
-
-							<ItemsControl ItemsSource="{Binding Fleets.Fleets}">
-								<ItemsControl.ItemTemplate>
-									<DataTemplate>
-										<TextBlock x:Name="Expedition"
-												   Style="{DynamicResource DefaultTextStyleKey}"
-												   Margin="0,4,0,0">
-											<Run Text="{Binding Id, Mode=OneWay, StringFormat=/{0}}"
-												 Style="{DynamicResource EmphaticTextElementStyleKey}" />
-											<Run x:Name="Remaining"
-												 Text="{Binding Expedition.Remaining, StringFormat=- {0}, Mode=OneWay}" />
-										</TextBlock>
-										<DataTemplate.Triggers>
-											<DataTrigger Binding="{Binding Id, Mode=OneWay}"
-														 Value="1">
-												<Setter TargetName="Expedition"
-														Property="Visibility"
-														Value="Collapsed" />
-											</DataTrigger>
-											<DataTrigger Binding="{Binding Expedition.IsInExecution}"
-														 Value="False">
-												<Setter TargetName="Remaining"
-														Property="Text"
-														Value="" />
-											</DataTrigger>
-										</DataTemplate.Triggers>
-									</DataTemplate>
-								</ItemsControl.ItemTemplate>
-							</ItemsControl>
-						</StackPanel>
-					</metro2:CallMethodButton>
-				</StackPanel>
-
-				<metro2:CallMethodButton Grid.Row="1"
-										 Grid.Column="0"
-										 Grid.ColumnSpan="2"
-										 Style="{StaticResource JumbButtonStyleKey}"
-										 MethodName="Jump"
-										 MethodParameter="Quests"
-										 MaxWidth="250" >
-					<StackPanel DataContext="{Binding Content.Quests}">
+					<StackPanel DataContext="{Binding Content.Expeditions}">
 						<TextBlock Text="{Binding Name}" />
 
 						<Rectangle Height=".99"
 								   Margin="0,7,0,3"
 								   Style="{DynamicResource SeparatorRectangleStyleKey}" />
 
-						<TextBlock Text="{Binding Resources.Quests_Untaken, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
-								   Visibility="{Binding IsUntaken, Converter={StaticResource BooleanToVisibilityConverter}}"
-								   HorizontalAlignment="Center"
-								   Margin="0,5,0,0" />
-
-						<ItemsControl ItemsSource="{Binding Current}"
-									  Visibility="{Binding IsUntaken, Converter={StaticResource UniversalBooleanToVisibilityConverter}, ConverterParameter=Collapsed:Visible}">
+						<ItemsControl ItemsSource="{Binding Fleets.Fleets}">
 							<ItemsControl.ItemTemplate>
 								<DataTemplate>
-									<Grid Margin="0,4,0,0">
-										<Grid.Resources>
-											<kcvv:QuestCategoryToColorConverter x:Key="QuestCategoryToColorConverterKey" />
-										</Grid.Resources>
-										<Grid.ColumnDefinitions>
-											<ColumnDefinition Width="Auto" />
-											<ColumnDefinition Width="*" />
-										</Grid.ColumnDefinitions>
-										<Rectangle Width="10"
-												   Height="10"
-												   VerticalAlignment="Center">
-											<Rectangle.Fill>
-												<SolidColorBrush Color="{Binding Category, Converter={StaticResource QuestCategoryToColorConverterKey}, Mode=OneWay}" />
-											</Rectangle.Fill>
-										</Rectangle>
-										<TextBlock x:Name="Title"
-												   Grid.Column="1"
-												   Text="{Binding Title, Mode=OneWay}"
+									<TextBlock x:Name="Expedition"
 												   Style="{DynamicResource DefaultTextStyleKey}"
-												   Margin="4,0,0,0" />
-									</Grid>
+												   Margin="0,4,0,0">
+											<Run Text="{Binding Id, Mode=OneWay, StringFormat=/{0}}"
+												 Style="{DynamicResource EmphaticTextElementStyleKey}" />
+											<Run x:Name="Remaining"
+												 Text="{Binding Expedition.Remaining, StringFormat=- {0}, Mode=OneWay}" />
+									</TextBlock>
 									<DataTemplate.Triggers>
-										<DataTrigger Binding="{Binding IsUntaken}"
-													 Value="True">
-											<Setter TargetName="Title"
-													Property="Text"
-													Value="{Binding Resources.Quest_Title_Untaken, Source={x:Static kcvg:ResourceService.Current}, Mode=OneWay}" />
+										<DataTrigger Binding="{Binding Id, Mode=OneWay}"
+														 Value="1">
+											<Setter TargetName="Expedition"
+														Property="Visibility"
+														Value="Collapsed" />
+										</DataTrigger>
+										<DataTrigger Binding="{Binding Expedition.IsInExecution}"
+														 Value="False">
+											<Setter TargetName="Remaining"
+														Property="Text"
+														Value="" />
 										</DataTrigger>
 									</DataTemplate.Triggers>
 								</DataTemplate>
@@ -410,8 +346,10 @@
 						</ItemsControl>
 					</StackPanel>
 				</metro2:CallMethodButton>
-			
-				<StackPanel Grid.Column="2">
+			</StackPanel>
+
+			<StackPanel Grid.Column="2"
+						Grid.Row="1">
 				<metro2:CallMethodButton Style="{StaticResource JumbButtonStyleKey}"
 										 MethodName="Jump"
 										 MethodParameter="Repairyard">
@@ -455,7 +393,7 @@
 						</ItemsControl>
 					</StackPanel>
 				</metro2:CallMethodButton>
-
+				
 				<metro2:CallMethodButton Style="{StaticResource JumbButtonStyleKey}"
 										 MethodName="Jump"
 										 MethodParameter="Dockyard">
@@ -515,7 +453,62 @@
 					</StackPanel>
 				</metro2:CallMethodButton>
 			</StackPanel>
-			</Grid>
+
+			<metro2:CallMethodButton Grid.Row="2"
+									 Grid.ColumnSpan="2"
+									 Style="{StaticResource JumbButtonStyleKey}"
+									 MethodName="Jump"
+									 MethodParameter="Quests" >
+				<StackPanel DataContext="{Binding Content.Quests}">
+					<TextBlock Text="{Binding Name}" />
+
+					<Rectangle Height=".99"
+								   Margin="0,7,0,3"
+								   Style="{DynamicResource SeparatorRectangleStyleKey}" />
+
+					<TextBlock Text="{Binding Resources.Quests_Untaken, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+								   Visibility="{Binding IsUntaken, Converter={StaticResource BooleanToVisibilityConverter}}"
+								   HorizontalAlignment="Center"
+								   Margin="0,5,0,0" />
+
+					<ItemsControl ItemsSource="{Binding Current}"
+									  Visibility="{Binding IsUntaken, Converter={StaticResource UniversalBooleanToVisibilityConverter}, ConverterParameter=Collapsed:Visible}">
+						<ItemsControl.ItemTemplate>
+							<DataTemplate>
+								<Grid Margin="0,4,0,0">
+									<Grid.Resources>
+										<kcvv:QuestCategoryToColorConverter x:Key="QuestCategoryToColorConverterKey" />
+									</Grid.Resources>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" />
+										<ColumnDefinition Width="*" />
+									</Grid.ColumnDefinitions>
+									<Rectangle Width="10"
+												   Height="10"
+												   VerticalAlignment="Center">
+										<Rectangle.Fill>
+											<SolidColorBrush Color="{Binding Category, Converter={StaticResource QuestCategoryToColorConverterKey}, Mode=OneWay}" />
+										</Rectangle.Fill>
+									</Rectangle>
+									<TextBlock x:Name="Title"
+												   Grid.Column="1"
+												   Text="{Binding Title, Mode=OneWay}"
+												   Style="{DynamicResource DefaultTextStyleKey}"
+												   Margin="4,0,0,0" />
+								</Grid>
+								<DataTemplate.Triggers>
+									<DataTrigger Binding="{Binding IsUntaken}"
+													 Value="True">
+										<Setter TargetName="Title"
+													Property="Text"
+													Value="{Binding Resources.Quest_Title_Untaken, Source={x:Static kcvg:ResourceService.Current}, Mode=OneWay}" />
+									</DataTrigger>
+								</DataTemplate.Triggers>
+							</DataTemplate>
+						</ItemsControl.ItemTemplate>
+					</ItemsControl>
+				</StackPanel>
+			</metro2:CallMethodButton>
 		</Grid>
 	</ScrollViewer>
 </UserControl>
