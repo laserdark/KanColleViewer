@@ -83,11 +83,12 @@
 
 
 	<ScrollViewer VerticalScrollBarVisibility="Auto"
-				  PanningMode="Both">
+				  PanningMode="Both" >
 		<Grid>
 			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="*" />
 				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="*"
+								  MaxWidth="295"/>
 			</Grid.ColumnDefinitions>
 
 			<Border VerticalAlignment="Top">
@@ -284,9 +285,9 @@
 					<RowDefinition Height="Auto" />
 				</Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="*"
-									  MaxWidth="115"/>
-					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width=".4*"
+									  MaxWidth="120"/>
+					<ColumnDefinition Width=".6*" />
 				</Grid.ColumnDefinitions>
 
 				<StackPanel>
@@ -358,8 +359,7 @@
 										 Grid.ColumnSpan="2"
 										 Style="{StaticResource JumbButtonStyleKey}"
 										 MethodName="Jump"
-										 MethodParameter="Quests"
-										 MaxWidth="250" >
+										 MethodParameter="Quests" >
 					<StackPanel DataContext="{Binding Content.Quests}">
 						<TextBlock Text="{Binding Name}" />
 
