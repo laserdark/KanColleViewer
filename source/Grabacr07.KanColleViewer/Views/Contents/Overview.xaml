@@ -83,19 +83,10 @@
 
 
 	<ScrollViewer VerticalScrollBarVisibility="Auto"
-				  PanningMode="Both"
-				  Grid.IsSharedSizeScope="True">
-		<Grid>
-			<Grid.RowDefinitions>
-				<RowDefinition Height="Auto" />
-				<RowDefinition Height="Auto" />
-				<RowDefinition Height="Auto" />
-			</Grid.RowDefinitions>
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition SharedSizeGroup="Width" />
-			</Grid.ColumnDefinitions>
-		
-			<Border>
+				  PanningMode="Both">
+		<WrapPanel>
+			
+			<Border VerticalAlignment="Top">
 				<DockPanel DataContext="{Binding Content.Fleets}">
 					<ListBox DockPanel.Dock="Top"
 							 ItemsSource="{Binding Fleets}"
@@ -283,11 +274,16 @@
 				</DockPanel>
 			</Border>
 
-			<Grid Grid.Row="1">
+			<Grid Grid.Column="1"
+				  MaxWidth="305">
+				<Grid.RowDefinitions>
+					<RowDefinition />
+					<RowDefinition Height="Auto"/>
+				</Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="Auto"
-									  MaxWidth="120"/>
-					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="0.4*"
+									  MaxWidth="220"/>
+					<ColumnDefinition Width="0.6*"/>
 				</Grid.ColumnDefinitions>
 
 				<StackPanel>
@@ -458,62 +454,64 @@
 						</StackPanel>
 					</metro2:CallMethodButton>
 				</StackPanel>
-			</Grid>
-			
-			<metro2:CallMethodButton Grid.Row="2"
+
+				<metro2:CallMethodButton Grid.Row="2"
+										 Grid.ColumnSpan="2"
 									 Style="{StaticResource JumbButtonStyleKey}"
 									 MethodName="Jump"
 									 MethodParameter="Quests" >
-				<StackPanel DataContext="{Binding Content.Quests}">
-					<TextBlock Text="{Binding Name}" />
+					<StackPanel DataContext="{Binding Content.Quests}">
+						<TextBlock Text="{Binding Name}" />
 
-					<Rectangle Height=".99"
+						<Rectangle Height=".99"
 								   Margin="0,7,0,3"
 								   Style="{DynamicResource SeparatorRectangleStyleKey}" />
 
-					<TextBlock Text="{Binding Resources.Quests_Untaken, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+						<TextBlock Text="{Binding Resources.Quests_Untaken, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 								   Visibility="{Binding IsUntaken, Converter={StaticResource BooleanToVisibilityConverter}}"
 								   HorizontalAlignment="Center"
 								   Margin="0,5,0,0" />
 
-					<ItemsControl ItemsSource="{Binding Current}"
+						<ItemsControl ItemsSource="{Binding Current}"
 									  Visibility="{Binding IsUntaken, Converter={StaticResource UniversalBooleanToVisibilityConverter}, ConverterParameter=Collapsed:Visible}">
-						<ItemsControl.ItemTemplate>
-							<DataTemplate>
-								<Grid Margin="0,4,0,0">
-									<Grid.Resources>
-										<kcvv:QuestCategoryToColorConverter x:Key="QuestCategoryToColorConverterKey" />
-									</Grid.Resources>
-									<Grid.ColumnDefinitions>
-										<ColumnDefinition Width="Auto" />
-										<ColumnDefinition Width="*" />
-									</Grid.ColumnDefinitions>
-									<Rectangle Width="10"
+							<ItemsControl.ItemTemplate>
+								<DataTemplate>
+									<Grid Margin="0,4,0,0">
+										<Grid.Resources>
+											<kcvv:QuestCategoryToColorConverter x:Key="QuestCategoryToColorConverterKey" />
+										</Grid.Resources>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="Auto" />
+											<ColumnDefinition Width="*" />
+										</Grid.ColumnDefinitions>
+										<Rectangle Width="10"
 												   Height="10"
 												   VerticalAlignment="Center">
-										<Rectangle.Fill>
-											<SolidColorBrush Color="{Binding Category, Converter={StaticResource QuestCategoryToColorConverterKey}, Mode=OneWay}" />
-										</Rectangle.Fill>
-									</Rectangle>
-									<TextBlock x:Name="Title"
+											<Rectangle.Fill>
+												<SolidColorBrush Color="{Binding Category, Converter={StaticResource QuestCategoryToColorConverterKey}, Mode=OneWay}" />
+											</Rectangle.Fill>
+										</Rectangle>
+										<TextBlock x:Name="Title"
 												   Grid.Column="1"
 												   Text="{Binding Title, Mode=OneWay}"
 												   Style="{DynamicResource DefaultTextStyleKey}"
 												   Margin="4,0,0,0" />
-								</Grid>
-								<DataTemplate.Triggers>
-									<DataTrigger Binding="{Binding IsUntaken}"
+									</Grid>
+									<DataTemplate.Triggers>
+										<DataTrigger Binding="{Binding IsUntaken}"
 													 Value="True">
-										<Setter TargetName="Title"
+											<Setter TargetName="Title"
 													Property="Text"
 													Value="{Binding Resources.Quest_Title_Untaken, Source={x:Static kcvg:ResourceService.Current}, Mode=OneWay}" />
-									</DataTrigger>
-								</DataTemplate.Triggers>
-							</DataTemplate>
-						</ItemsControl.ItemTemplate>
-					</ItemsControl>
-				</StackPanel>
-			</metro2:CallMethodButton>
-		</Grid>
+										</DataTrigger>
+									</DataTemplate.Triggers>
+								</DataTemplate>
+							</ItemsControl.ItemTemplate>
+						</ItemsControl>
+					</StackPanel>
+				</metro2:CallMethodButton>
+			</Grid>
+						
+		</WrapPanel>
 	</ScrollViewer>
 </UserControl>
