@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Grabacr07.KanColleViewer.Views.Contents.Expeditions"
+<UserControl x:Class="Grabacr07.KanColleViewer.Views.Contents.Expeditions"
 			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 			 xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
@@ -77,7 +77,9 @@
 				  PanningMode="Both">
 		<ItemsControl ItemsSource="{Binding Fleets}"
 					  Margin="5,0,5,5"
-					  d:DataContext="{d:DesignData /SampleData/FleetsViewModelSampleData.xaml}">
+					  d:DataContext="{d:DesignData /SampleData/FleetsViewModelSampleData.xaml}"
+					  Grid.IsSharedSizeScope="True" 
+					  VerticalAlignment="Top">
 			<ItemsControl.ItemsPanel>
 				<ItemsPanelTemplate>
 					<UniformGrid Rows="1" />
@@ -107,37 +109,60 @@
 									   Visibility="Collapsed" />
 
 							<StackPanel x:Name="ExpeditionInfo">
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto"
+													   SharedSizeGroup=""/>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"
+													   SharedSizeGroup=""/>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"
+													   SharedSizeGroup=""/>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"
+													   SharedSizeGroup=""/>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"
+													   SharedSizeGroup=""/>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"
+													   SharedSizeGroup=""/>
+										<RowDefinition Height="Auto"/>
+									</Grid.RowDefinitions>
 								<TextBlock Text="{Binding Expedition.Mission.Title}"
 										   Style="{DynamicResource EmphaticTextStyleKey}" />
-								<Border Height="4" />
-								<TextBlock Text="{Binding Expedition.Mission.Detail}"
+									<Border Grid.Row="1" Height="4" />
+									<TextBlock Grid.Row="2" Text="{Binding Expedition.Mission.Detail}"
 										   Style="{DynamicResource DefaultTextStyleKey}" />
 
-								<Border Height=".99"
+									<Border Grid.Row="3" Height=".99"
 										Background="{DynamicResource BorderBrushKey}"
 										Margin="0,8" />
 
-								<TextBlock Text="{Binding Resources.Expedition_TimeComplete, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+									<TextBlock Grid.Row="4" Text="{Binding Resources.Expedition_TimeComplete, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 										   Style="{DynamicResource HeaderTextStyleKey}" />
-								<Border Height="4" />
-								<TextBlock Text="{Binding Expedition.ReturnTime, Mode=OneWay}"
+									<Border Grid.Row="5" Height="4" />
+									<TextBlock Grid.Row="6" Text="{Binding Expedition.ReturnTime, Mode=OneWay}"
 										   Style="{DynamicResource EmphaticTextStyleKey}"
 										   Margin="8,0" />
 
-								<Border Height=".99"
+									<Border Grid.Row="7" Height=".99"
 										Background="{DynamicResource BorderBrushKey}"
 										Margin="0,8" />
 
-								<TextBlock Text="{Binding Resources.Expedition_TimeRemaining, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+									<TextBlock Grid.Row="8" Text="{Binding Resources.Expedition_TimeRemaining, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 										   Style="{DynamicResource HeaderTextStyleKey}" />
-								<Border Height="4" />
-								<TextBlock Text="{Binding Expedition.Remaining, Mode=OneWay}"
+									<Border Grid.Row="9" Height="4" />
+									<TextBlock Grid.Row="10" Text="{Binding Expedition.Remaining, Mode=OneWay}"
 										   Style="{DynamicResource EmphaticTextStyleKey}"
 										   Margin="8,0" />
 
-								<Border Height=".99"
+									<Border Grid.Row="11" Height=".99"
 										Background="{DynamicResource BorderBrushKey}"
 										Margin="0,8" />
+
+								</Grid>
 							</StackPanel>
 						</Grid>
 					</GroupBox>
