@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -20,9 +20,17 @@ namespace Grabacr07.KanColleWrapper.Models
 		{
 			try
 			{
-				this.SlotItemInfo = this.Succeed
-					? KanColleClient.Current.Master.SlotItems[rawData.api_slot_item.api_slotitem_id]
-					: KanColleClient.Current.Master.SlotItems[int.Parse(rawData.api_fdata.Split(',')[1])];
+				if (this.Succeed)
+				{
+					for (int i = 0; i < rawData.api_get_items.Length; i++)
+					{
+						this.SlotItemInfo = (rawData.api_get_items[i].api_slotitem_id != -1) ? KanColleClient.Current.Master.SlotItems[rawData.api_get_items[i].api_slotitem_id] : null;
+					}
+				}
+				else
+				{
+					this.SlotItemInfo = null;
+				}					
 
 				System.Diagnostics.Debug.WriteLine("createitem: {0} - {1}", this.Succeed, this.SlotItemInfo.Name);
 			}
