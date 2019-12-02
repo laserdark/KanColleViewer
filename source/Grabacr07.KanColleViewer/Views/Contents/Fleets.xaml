@@ -17,8 +17,8 @@
 			 xmlns:viewModels="clr-namespace:Grabacr07.KanColleViewer.ViewModels"
 			 xmlns:fleets="clr-namespace:Grabacr07.KanColleViewer.ViewModels.Contents.Fleets"
 			 mc:Ignorable="d"
-			 d:DesignWidth="800"
-			 d:DesignHeight="400"
+			 d:DesignWidth="625"
+			 d:DesignHeight="660"
 			 d:DataContext="{d:DesignInstance fleets:FleetsViewModel}">
 
 	<UserControl.Resources>
@@ -63,20 +63,11 @@
 								<contents:StateIconIndicator Width="14"
 															 Height="14"
 															 Margin="0,2,4,0" />
-								<TextBlock x:Name="FleetName"
-										   Text="{Binding Id, StringFormat='/{0}'}"
+								<TextBlock Text="{Binding Name}"
 										   Style="{DynamicResource HeaderTextStyleKey}"
 										   Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}}" />
 							</StackPanel>
 						</Border>
-						<DataTemplate.Triggers>
-							<DataTrigger Binding="{Binding IsSelected}"
-										 Value="True">
-								<Setter TargetName="FleetName"
-										Property="Text"
-										Value="{Binding Name}" />
-							</DataTrigger>
-						</DataTemplate.Triggers>
 					</DataTemplate>
 				</ItemsControl.ItemTemplate>
 			</ListBox>
@@ -92,8 +83,7 @@
 									 Content="艦隊詳細"
 									 Margin="0,0,10,3"
 									 Padding="12,8"
-									 MethodName="ShowFleetWindow"
-									 HorizontalAlignment="Left" />
+									 MethodName="ShowFleetWindow" />
 
 			<Grid Grid.Row="3"
 				  Grid.Column="0"
@@ -152,9 +142,7 @@
 									<TextBlock Grid.Column="2"										   
 											   Grid.Row="0"
 											   Grid.RowSpan="2"
-											   Margin="4,0,10,0"
-											   MaxWidth="170"
-											   TextWrapping="Wrap">
+											   Margin="4,0,10,0">
 										<Run Text="{Binding Ship.Info.Name, Mode=OneWay}"
 											 FontSize="22"
 											 Style="{DynamicResource EmphaticTextElementStyleKey}" />
