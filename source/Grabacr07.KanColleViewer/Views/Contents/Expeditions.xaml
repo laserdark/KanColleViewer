@@ -103,66 +103,56 @@
 							  Margin="5,0,5,5"
 							  Padding="8">
 						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition SharedSizeGroup="Mission" />
+								<RowDefinition SharedSizeGroup="Return" />
+								<RowDefinition SharedSizeGroup="Remaining" />
+							</Grid.RowDefinitions>
+														
 							<TextBlock x:Name="NotExcution"
+									   Grid.RowSpan="3"
 									   Text="遠征に出ていません。"
 									   Style="{DynamicResource EmphaticTextStyleKey}"
 									   Visibility="Collapsed" />
 
-							<StackPanel x:Name="ExpeditionInfo">
-								<Grid>
-									<Grid.RowDefinitions>
-										<RowDefinition Height="Auto"
-													   SharedSizeGroup=""/>
-										<RowDefinition Height="Auto"/>
-										<RowDefinition Height="Auto"
-													   SharedSizeGroup=""/>
-										<RowDefinition Height="Auto"/>
-										<RowDefinition Height="Auto"
-													   SharedSizeGroup=""/>
-										<RowDefinition Height="Auto"/>
-										<RowDefinition Height="Auto"
-													   SharedSizeGroup=""/>
-										<RowDefinition Height="Auto"/>
-										<RowDefinition Height="Auto"
-													   SharedSizeGroup=""/>
-										<RowDefinition Height="Auto"/>
-										<RowDefinition Height="Auto"
-													   SharedSizeGroup=""/>
-										<RowDefinition Height="Auto"/>
-									</Grid.RowDefinitions>
+							<StackPanel x:Name="MissionInfo">
 								<TextBlock Text="{Binding Expedition.Mission.Title}"
 										   Style="{DynamicResource EmphaticTextStyleKey}" />
-									<Border Grid.Row="1" Height="4" />
-									<TextBlock Grid.Row="2" Text="{Binding Expedition.Mission.Detail}"
+								<Border Height="4" />
+								<TextBlock Text="{Binding Expedition.Mission.Detail}"
 										   Style="{DynamicResource DefaultTextStyleKey}" />
+							</StackPanel>
 
-									<Border Grid.Row="3" Height=".99"
+							<StackPanel x:Name="ReturnTime"
+										Grid.Row="1">
+								<Border Height=".99"
 										Background="{DynamicResource BorderBrushKey}"
 										Margin="0,8" />
 
-									<TextBlock Grid.Row="4" Text="{Binding Resources.Expedition_TimeComplete, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+								<TextBlock Text="{Binding Resources.Expedition_TimeComplete, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 										   Style="{DynamicResource HeaderTextStyleKey}" />
-									<Border Grid.Row="5" Height="4" />
-									<TextBlock Grid.Row="6" Text="{Binding Expedition.ReturnTime, Mode=OneWay}"
+								<Border Height="4" />
+								<TextBlock Text="{Binding Expedition.ReturnTime, Mode=OneWay}"
 										   Style="{DynamicResource EmphaticTextStyleKey}"
 										   Margin="8,0" />
 
-									<Border Grid.Row="7" Height=".99"
+								<Border Height=".99"
 										Background="{DynamicResource BorderBrushKey}"
 										Margin="0,8" />
+							</StackPanel>
 
-									<TextBlock Grid.Row="8" Text="{Binding Resources.Expedition_TimeRemaining, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+							<StackPanel x:Name="RemainingTime"
+										Grid.Row="2">
+								<TextBlock Text="{Binding Resources.Expedition_TimeRemaining, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 										   Style="{DynamicResource HeaderTextStyleKey}" />
-									<Border Grid.Row="9" Height="4" />
-									<TextBlock Grid.Row="10" Text="{Binding Expedition.Remaining, Mode=OneWay}"
+								<Border Height="4" />
+								<TextBlock Text="{Binding Expedition.Remaining, Mode=OneWay}"
 										   Style="{DynamicResource EmphaticTextStyleKey}"
 										   Margin="8,0" />
 
-									<Border Grid.Row="11" Height=".99"
+								<Border Height=".99"
 										Background="{DynamicResource BorderBrushKey}"
 										Margin="0,8" />
-
-								</Grid>
 							</StackPanel>
 						</Grid>
 					</GroupBox>
@@ -172,7 +162,13 @@
 							<Setter TargetName="NotExcution"
 									Property="Visibility"
 									Value="Visible" />
-							<Setter TargetName="ExpeditionInfo"
+							<Setter TargetName="MissionInfo"
+									Property="Visibility"
+									Value="Collapsed" />
+							<Setter TargetName="ReturnTime"
+									Property="Visibility"
+									Value="Collapsed" />
+							<Setter TargetName="RemainingTime"
 									Property="Visibility"
 									Value="Collapsed" />
 						</DataTrigger>
