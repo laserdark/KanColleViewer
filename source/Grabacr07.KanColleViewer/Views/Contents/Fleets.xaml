@@ -17,8 +17,8 @@
 			 xmlns:viewModels="clr-namespace:Grabacr07.KanColleViewer.ViewModels"
 			 xmlns:fleets="clr-namespace:Grabacr07.KanColleViewer.ViewModels.Contents.Fleets"
 			 mc:Ignorable="d"
-			 d:DesignWidth="800"
-			 d:DesignHeight="400"
+			 d:DesignWidth="625"
+			 d:DesignHeight="660"
 			 d:DataContext="{d:DesignInstance fleets:FleetsViewModel}">
 
 	<UserControl.Resources>
@@ -142,9 +142,7 @@
 									<TextBlock Grid.Column="2"										   
 											   Grid.Row="0"
 											   Grid.RowSpan="2"
-											   Margin="4,0,10,0"
-											   MaxWidth="170"
-											   TextWrapping="Wrap">
+											   Margin="4,0,10,0">
 										<Run Text="{Binding Ship.Info.Name, Mode=OneWay}"
 											 FontSize="22"
 											 Style="{DynamicResource EmphaticTextElementStyleKey}" />
