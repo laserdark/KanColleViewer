@@ -1,4 +1,4 @@
-<UserControl x:Class="Grabacr07.KanColleViewer.Views.Contents.Expeditions"
+﻿<UserControl x:Class="Grabacr07.KanColleViewer.Views.Contents.Expeditions"
 			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 			 xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
@@ -15,8 +15,8 @@
 			 xmlns:root="clr-namespace:Grabacr07.KanColleViewer"
 			 xmlns:models="clr-namespace:Grabacr07.KanColleViewer.Models"
 			 mc:Ignorable="d"
-			 d:DesignWidth="700"
-			 d:DesignHeight="300"
+			 d:DesignWidth="625"
+			 d:DesignHeight="660"
 			 d:DataContext="{d:DesignInstance vmContents:ExpeditionsViewModel}">
 	<UserControl.Resources>
 		<Style TargetType="{x:Type GroupBox}">
@@ -82,7 +82,7 @@
 					  VerticalAlignment="Top">
 			<ItemsControl.ItemsPanel>
 				<ItemsPanelTemplate>
-					<UniformGrid Rows="1" />
+					<UniformGrid Columns="1" />
 				</ItemsPanelTemplate>
 			</ItemsControl.ItemsPanel>
 			<ItemsControl.ItemContainerStyle>
