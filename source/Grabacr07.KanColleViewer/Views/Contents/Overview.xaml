@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Grabacr07.KanColleViewer.Views.Contents.Overview"
+<UserControl x:Class="Grabacr07.KanColleViewer.Views.Contents.Overview"
 			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 			 xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
@@ -88,35 +88,35 @@
 			<Grid>
 				<Grid.RowDefinitions>
 					<RowDefinition Height="Auto" />
-					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto" />
 				</Grid.RowDefinitions>
 
 				<Border VerticalAlignment="Top">
 					<DockPanel DataContext="{Binding Content.Fleets}">
 						<ListBox DockPanel.Dock="Top"
-							 ItemsSource="{Binding Fleets}"
-							 SelectedValue="{Binding SelectedFleet, Mode=TwoWay}"
-							 Style="{DynamicResource HorizontalFlatListBoxStyleKey}">
+								 ItemsSource="{Binding Fleets}"
+								 SelectedValue="{Binding SelectedFleet, Mode=TwoWay}"
+								 Style="{DynamicResource HorizontalFlatListBoxStyleKey}">
 							<ItemsControl.ItemTemplate>
 								<DataTemplate>
 									<Border Padding="0,0,18,0"
-										Background="Transparent">
+											Background="Transparent">
 										<StackPanel Orientation="Horizontal">
 											<vContents:StateIconIndicator Width="12"
-																	  Height="12"
-																	  Margin="0,2,4,1" />
+																		  Height="12"
+																		  Margin="0,2,4,1" />
 											<TextBlock x:Name="FleetName"
-												   Text="{Binding Id, StringFormat='/{0}'}"
-												   Style="{DynamicResource DefaultTextStyleKey}"
-												   Foreground="{DynamicResource ActiveForegroundBrushKey}" />
+													   Text="{Binding Id, StringFormat='/{0}'}"
+													   Style="{DynamicResource DefaultTextStyleKey}"
+													   Foreground="{DynamicResource ActiveForegroundBrushKey}" />
 										</StackPanel>
 									</Border>
 									<DataTemplate.Triggers>
 										<DataTrigger Binding="{Binding IsSelected}"
-												 Value="True">
+													 Value="True">
 											<Setter TargetName="FleetName"
-												Property="Text"
-												Value="{Binding Name}" />
+													Property="Text"
+													Value="{Binding Name}" />
 										</DataTrigger>
 									</DataTemplate.Triggers>
 								</DataTemplate>
@@ -146,41 +146,41 @@
 												<Style TargetType="{x:Type TextBlock}"
 													   BasedOn="{StaticResource DefaultTextStyleKey}">
 													<Setter Property="TextWrapping"
-														Value="NoWrap" />
+															Value="NoWrap" />
 												</Style>
 											</StackPanel.Resources>
 
 											<Grid HorizontalAlignment="Left">
 												<Grid.ColumnDefinitions>
 													<ColumnDefinition Width="Auto"
-																  SharedSizeGroup="Name" />
+																	 SharedSizeGroup="Name" />
 													<ColumnDefinition Width="Auto"
-																  SharedSizeGroup="Level" />
+																	 SharedSizeGroup="Level" />
 													<ColumnDefinition Width="Auto"
-																  SharedSizeGroup="HP" />
+																	 SharedSizeGroup="HP" />
 													<ColumnDefinition Width="Auto"
-																  SharedSizeGroup="Condition" />
+																	 SharedSizeGroup="Condition" />
 												</Grid.ColumnDefinitions>
 
 												<TextBlock ToolTipService.Placement="Relative"
 														   ToolTipService.HorizontalOffset="-9"
 														   ToolTipService.VerticalOffset="-3">
-												<Run Text="{Binding Ship.Info.Name, Mode=OneWay}"
-													 Style="{DynamicResource EmphaticTextElementStyleKey}" />
-												<LineBreak />
-												<Run Text="{Binding Ship.Info.ShipType.Name, Mode=OneWay}"
-													 FontSize="11" />
+													<Run Text="{Binding Ship.Info.Name, Mode=OneWay}"
+														 Style="{DynamicResource EmphaticTextElementStyleKey}" />
+													<LineBreak />
+													<Run Text="{Binding Ship.Info.ShipType.Name, Mode=OneWay}"
+														 FontSize="11" />
 												</TextBlock>
 
 												<TextBlock Grid.Column="1"
 														   Margin="12,0,0,0" 
 														   VerticalAlignment="Top">
-												<Run Text="Lv." />
-												<Run Text="{Binding Ship.Level, Mode=OneWay}"
-													 Style="{DynamicResource EmphaticTextElementStyleKey}" />
-												<LineBreak />
-												<Run Text="{Binding Ship.ExpForNextLevel, StringFormat=Next: {0}, Mode=OneWay}"
-													 FontSize="9" />
+													<Run Text="Lv." />
+													<Run Text="{Binding Ship.Level, Mode=OneWay}"
+														 Style="{DynamicResource EmphaticTextElementStyleKey}" />
+													<LineBreak />
+													<Run Text="{Binding Ship.ExpForNextLevel, StringFormat=Next: {0}, Mode=OneWay}"
+														 FontSize="9" />
 												</TextBlock>
 
 												<Grid x:Name="HPIndicator"
@@ -191,10 +191,10 @@
 														<RowDefinition Height="Auto" />
 													</Grid.RowDefinitions>
 													<TextBlock>
-													<Run Text="HP:" />
-													<Run Text="{Binding Ship.HP.Current, Mode=OneWay}"
-														 Style="{DynamicResource EmphaticTextElementStyleKey}" />
-													<Run Text="{Binding Ship.HP.Maximum, StringFormat=/{0}, Mode=OneWay}" />
+														<Run Text="HP:" />
+														<Run Text="{Binding Ship.HP.Current, Mode=OneWay}"
+															 Style="{DynamicResource EmphaticTextElementStyleKey}" />
+														<Run Text="{Binding Ship.HP.Maximum, StringFormat=/{0}, Mode=OneWay}" />
 													</TextBlock>
 													<kcvc:ColorIndicator Grid.Row="1"
 																		 Height="6"
@@ -226,14 +226,14 @@
 
 												<TextBlock Grid.Column="3"
 														   VerticalAlignment="Top">
-												<InlineUIContainer>
-													<kcvc:ConditionIcon ConditionType="{Binding Ship.ConditionType, Mode=OneWay}" />
-												</InlineUIContainer>
-												<Run Text="{Binding Ship.Condition, Mode=OneWay}"
-													 Style="{DynamicResource EmphaticTextElementStyleKey}" />
-												<LineBreak />
-												<Run Text="condition"
-													 FontSize="9" />
+													<InlineUIContainer>
+														<kcvc:ConditionIcon ConditionType="{Binding Ship.ConditionType, Mode=OneWay}" />
+													</InlineUIContainer>
+													<Run Text="{Binding Ship.Condition, Mode=OneWay}"
+														 Style="{DynamicResource EmphaticTextElementStyleKey}" />
+													<LineBreak />
+													<Run Text="condition"
+														 FontSize="9" />
 												</TextBlock>
 											</Grid>
 											<Rectangle Height=".99"
@@ -340,15 +340,15 @@
 									<DataTemplate>
 										<TextBlock Style="{DynamicResource DefaultTextStyleKey}"
 												   Margin="0,4,0,0">
-										<Run x:Name="ShipName"
-											 Text="{Binding Ship, Mode=OneWay}"
-											 Style="{DynamicResource EmphaticTextElementStyleKey}" />
-										<Run x:Name="Remaining"
-											 Text="{Binding Remaining, StringFormat=- {0}, Mode=OneWay}" />
+											<Run x:Name="ShipName"
+												 Text="{Binding Ship, Mode=OneWay}"
+												 Style="{DynamicResource EmphaticTextElementStyleKey}" />
+											<Run x:Name="Remaining"
+												 Text="{Binding Remaining, StringFormat=- {0}, Mode=OneWay}" />
 										</TextBlock>
 										<DataTemplate.Triggers>
 											<DataTrigger Binding="{Binding State}"
-													 Value="Locked">
+														 Value="Locked">
 												<Setter TargetName="Remaining"
 														Property="Text"
 														Value="{Binding Resources.Repairyard_Locked, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
@@ -421,11 +421,11 @@
 										<DataTemplate>
 											<TextBlock Style="{DynamicResource DefaultTextStyleKey}"
 													   Margin="0,4,0,0">
-										<Run x:Name="ShipName"
-											 Text="{Binding Ship, Mode=OneWay}"
-											 Style="{DynamicResource EmphaticTextElementStyleKey}" />
-										<Run x:Name="Remaining"
-											 Text="{Binding Remaining, StringFormat=- {0}, Mode=OneWay}" />
+												<Run x:Name="ShipName"
+													 Text="{Binding Ship, Mode=OneWay}"
+													 Style="{DynamicResource EmphaticTextElementStyleKey}" />
+												<Run x:Name="Remaining"
+													 Text="{Binding Remaining, StringFormat=- {0}, Mode=OneWay}" />
 											</TextBlock>
 											<DataTemplate.Triggers>
 												<DataTrigger Binding="{Binding Source={x:Static settings:KanColleSettings.CanDisplayBuildingShipName}, Path=Value}"

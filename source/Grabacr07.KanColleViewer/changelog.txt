@@ -1,6 +1,15 @@
 ﻿﻿﻿========================
 	KCV Change Log
 ========================
+v4.5.1 r201 2019/12/09
+	-UI调整
+		-Expeditions.xaml
+			-【远征】栏 共享列宽
+		-Fleets.xaml
+			-【舰队】栏 姓名版缩放取消&按钮布局对齐调整
+		-Overview.xaml
+			-【综合】栏 多框体结构布局调整
+
 v4.5.1 r200 2019/11/23
 KanColle HTML5 mode UI布局重构
 	-UI调整
