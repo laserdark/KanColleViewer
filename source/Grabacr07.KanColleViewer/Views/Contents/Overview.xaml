@@ -21,7 +21,7 @@
 			 xmlns:settings="clr-namespace:Grabacr07.KanColleViewer.Models.Settings"
 			 mc:Ignorable="d"
 			 d:DataContext="{d:DesignInstance vmContents:OverviewViewModel}"
-			 d:DesignWidth="625"
+			 d:DesignWidth="225"
 			 d:DesignHeight="660">
 	<UserControl.Resources>
 		<ResourceDictionary>

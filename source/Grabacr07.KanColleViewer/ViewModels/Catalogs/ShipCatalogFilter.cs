@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -564,7 +564,8 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 					.Concat(areas)
 					.Select(x => new SallyAreaFilterChild(x, this))
 					.ToArray();
-				this.IsEnabled = true;
+				var areastmp = new SallyAreaFilterChild[0];
+				this.IsEnabled = (areastmp == SallyAreas) ? false : true;
 			}
 
 			this.Update();
