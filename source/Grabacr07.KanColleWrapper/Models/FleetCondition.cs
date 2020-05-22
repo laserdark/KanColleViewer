@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
@@ -73,35 +73,58 @@ namespace Grabacr07.KanColleWrapper.Models
 		public event EventHandler<ConditionRejuvenatedEventArgs> Rejuvenated;
 
 		internal void Update(Ship[] s)
-		{
-			this.ships = s;
-
-			if (this.ships.Length == 0)
-			{
+		{			
+			if (s.Length == 0)
+			{				
 				this.RejuvenateTime = null;
+				this.ships = s;
 				return;
 			}
 
-			var condition = this.ships.Min(x => x.Condition);
-			if (condition != this.minCondition)
+			var isSubset = false;
+			if (this.ships != null)
 			{
-				this.minCondition = condition;
+				if (s.All(x => this.ships.Any(y => x.Id == y.Id)))
+					isSubset = true;
+			}
 
-				var rejuvnate = DateTimeOffset.Now; // 回復完了予測時刻
+			var condTmp = this.ships == null ? 0 : this.ships.Min(x => x.Condition);
+			var condition = s.Min(x => x.Condition);
+			if ((condition > this.minCondition) && (isSubset || (condition == condTmp)))
+			{
+				var rejuvnate = GetRejuvnate(condition);
 
-				while (condition < Math.Min(49, KanColleClient.Current.Settings.ReSortieCondition))
-				{
-					rejuvnate = rejuvnate.AddMinutes(3);
-					condition += 3;
-					if (condition > 49) condition = 49;
-				}
+				if (this.RejuvenateTime > rejuvnate)
+					this.RejuvenateTime = rejuvnate <= DateTimeOffset.Now
+					? (DateTimeOffset?)null
+					: rejuvnate;
+			}
+			else if (!((condition == this.minCondition) && isSubset))
+			{
+				var rejuvnate = GetRejuvnate(condition);
 
 				this.RejuvenateTime = rejuvnate <= DateTimeOffset.Now
 					? (DateTimeOffset?)null
 					: rejuvnate;
 			}
-		}
 
+			this.ships = s;
+		}
+		private DateTimeOffset GetRejuvnate(int cond)
+		{
+			this.minCondition = cond;
+
+			var r = DateTimeOffset.Now; // 回復完了予測時刻
+
+			while (cond < Math.Min(49, KanColleClient.Current.Settings.ReSortieCondition))
+			{
+				r = r.AddMinutes(3);
+				cond += 3;
+				if (cond > 49) cond = 49;
+			}
+
+			return r;
+		}
 
 		protected override void Tick()
 		{

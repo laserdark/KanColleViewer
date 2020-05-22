@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -70,12 +70,12 @@ namespace Grabacr07.KanColleViewer.ViewModels.Settings
 		{
 			this.ExitConfirmationTypes = new List<DisplayViewModel<ExitConfirmationType>>
 			{
-				DisplayViewModel.Create(ExitConfirmationType.None, "確認しない"),
-				DisplayViewModel.Create(ExitConfirmationType.InSortieOnly, "出撃中のみ確認する"),
-				DisplayViewModel.Create(ExitConfirmationType.Always, "常に確認する"),
+				DisplayViewModel.Create(ExitConfirmationType.None, Properties.Resources.ExitConfirmation_Never),
+				DisplayViewModel.Create(ExitConfirmationType.InSortieOnly, Properties.Resources.ExitConfirmation_InSortieOnly),
+				DisplayViewModel.Create(ExitConfirmationType.Always, Properties.Resources.ExitConfirmation_Always),
 			};
 			this.TaskbarProgressFeatures = EnumerableEx
-				.Return(GeneralSettings.TaskbarProgressSource.ToDefaultDisplay("使用しない"))
+				.Return(GeneralSettings.TaskbarProgressSource.ToDefaultDisplay(Properties.Resources.TaskBarProgress_DisplayName_NotUsed))
 				.Concat(TaskbarProgress.Features.ToDisplay(x => x.Id, x => x.DisplayName))
 				.ToList();
 		}
