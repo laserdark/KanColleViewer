@@ -134,9 +134,9 @@ namespace Grabacr07.KanColleWrapper
 		{
 			if (source.api_create_flag == 1 && source.api_get_items != null)
 			{
-				for (int i=0; i < source.api_get_items.Length; i++)
+				foreach (var x in source.api_get_items)
 				{
-					this.SlotItems.Add(new SlotItem(source.api_get_items[i]));
+					if (x.api_slotitem_id != -1) this.SlotItems.Add(new SlotItem(x));
 				}				
 			}
 			this.RaiseSlotItemsChanged();
