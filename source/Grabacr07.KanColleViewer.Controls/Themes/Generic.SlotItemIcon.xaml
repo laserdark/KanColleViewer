@@ -217,7 +217,7 @@
 				</Setter>
 			</Trigger>
 			<Trigger Property="Type"
-					 Value="ReconSeaplane">
+					 Value="Seaplane">
 				<Setter Property="Template">
 					<Setter.Value>
 						<ControlTemplate TargetType="{x:Type controls:SlotItemIcon}">
@@ -321,7 +321,7 @@
 				</Setter>
 			</Trigger>
 			<Trigger Property="Type"
-					 Value="ASW">
+					 Value="DepthCharge">
 				<Setter Property="Template">
 					<Setter.Value>
 						<ControlTemplate TargetType="{x:Type controls:SlotItemIcon}">
@@ -335,7 +335,7 @@
 				</Setter>
 			</Trigger>
 			<Trigger Property="Type"
-					 Value="Soner">
+					 Value="Sonar">
 				<Setter Property="Template">
 					<Setter.Value>
 						<ControlTemplate TargetType="{x:Type controls:SlotItemIcon}">
@@ -387,7 +387,7 @@
 				</Setter>
 			</Trigger>
 			<Trigger Property="Type"
-					 Value="ArtillerySpotter">
+					 Value="AntiSubmarinePatrol">
 				<Setter Property="Template">
 					<Setter.Value>
 						<ControlTemplate TargetType="{x:Type controls:SlotItemIcon}">
@@ -619,7 +619,7 @@
 				</Setter>
 			</Trigger>
 			<Trigger Property="Type"
-					 Value="RocketLauncher">
+					 Value="RocketArtillery">
 				<Setter Property="Template">
 					<Setter.Value>
 						<ControlTemplate TargetType="{x:Type controls:SlotItemIcon}">
@@ -747,7 +747,7 @@
 				</Setter>
 			</Trigger>
 			<Trigger Property="Type"
-					 Value="AmphibiousLandingCraft">
+					 Value="AmphibiousVehicle">
 				<Setter Property="Template">
 					<Setter.Value>
 						<ControlTemplate TargetType="{x:Type controls:SlotItemIcon}">
