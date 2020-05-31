@@ -529,6 +529,15 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
+        ///   查找类似 対空 的本地化字符串。
+        /// </summary>
+        public static string Fleets_AA {
+            get {
+                return ResourceManager.GetString("Fleets_AA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 制空戦力 的本地化字符串。
         /// </summary>
         public static string Fleets_AirSuperiorityPotential {
@@ -576,9 +585,9 @@ namespace Grabacr07.KanColleViewer.Properties {
         /// <summary>
         ///   查找类似 火力 的本地化字符串。
         /// </summary>
-        public static string Fleets_Karyoku {
+        public static string Fleets_Firepower {
             get {
-                return ResourceManager.GetString("Fleets_Karyoku", resourceCulture);
+                return ResourceManager.GetString("Fleets_Firepower", resourceCulture);
             }
         }
         

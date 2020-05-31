@@ -54,8 +54,8 @@
 						<TextBlock Text="{Binding Source={x:Static models:ResourceService.Current}, Path=Resources.Fleets_Level, StringFormat='{}{0}: '}" />
 						<TextBlock Text="{Binding State.TotalLevel}"
 								   MinWidth="45" />
-						<TextBlock Text="{Binding Source={x:Static models:ResourceService.Current}, Path=Resources.Fleets_Karyoku, StringFormat='{}{0}: '}" />
-						<TextBlock Text="{Binding State.TotalKaryoku}"
+						<TextBlock Text="{Binding Source={x:Static models:ResourceService.Current}, Path=Resources.Fleets_Firepower, StringFormat='{}{0}: '}" />
+						<TextBlock Text="{Binding State.TotalFirepower}"
 								   MinWidth="45" />
 						<TextBlock Text="{Binding Source={x:Static models:ResourceService.Current}, Path=Resources.Fleets_ASW, StringFormat='{}{0}: '}" />
 						<TextBlock Text="{Binding State.TotalASW}"

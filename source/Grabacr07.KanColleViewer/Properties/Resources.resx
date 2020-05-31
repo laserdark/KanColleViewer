@@ -480,7 +480,7 @@
   <data name="Fleets_ASW" xml:space="preserve">
     <value>対潜</value>
   </data>
-  <data name="Fleets_Karyoku" xml:space="preserve">
+  <data name="Fleets_Firepower" xml:space="preserve">
     <value>火力</value>
   </data>
   <data name="Settings_Plugins" xml:space="preserve">
@@ -772,5 +772,8 @@
   <data name="StartContent_ClearCacheButtonMessage" xml:space="preserve">
     <value></value>
     <comment>NoLongerExist</comment>
+  </data>
+  <data name="Fleets_AA" xml:space="preserve">
+    <value>対空</value>
   </data>
 </root>

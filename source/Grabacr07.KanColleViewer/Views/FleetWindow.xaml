@@ -587,6 +587,9 @@
 							<RowDefinition Height="Auto" />
 							<RowDefinition Height="Auto" />
 							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
 							<RowDefinition Height="4" />
 							<RowDefinition Height="Auto" />
 							<RowDefinition Height="Auto" />
@@ -625,8 +628,89 @@
 								   Style="{DynamicResource EmphaticTextStyleKey}"
 								   VerticalAlignment="Bottom"
 								   Margin="4,2" />
-
+						
 						<TextBlock Grid.Row="3"
+								   Grid.Column="0"
+								   Style="{DynamicResource DefaultTextStyleKey}"
+								   HorizontalAlignment="Right"
+								   VerticalAlignment="Bottom"
+								   Margin="1,2">
+							<Run Text="{Binding Resources.Fleets_Firepower, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+							<Run Text=":" />
+						</TextBlock>
+						<TextBlock Grid.Row="3"
+								   Grid.Column="1"
+								   Style="{DynamicResource EmphaticTextStyleKey}"
+								   VerticalAlignment="Bottom"
+								   Margin="4,2">
+							<FrameworkElement.ToolTip>
+								<TextBlock Style="{DynamicResource DefaultTextStyleKey}">
+									<Run Text="表示値 + 改修補正値 :" />
+									<Run Text="{Binding State.IndicatedFirepower, Mode=OneWay}" />
+									<Run Text="+" />
+									<Run Text="{Binding State.ImprovementFirepower, Mode=OneWay}" />
+								</TextBlock>
+							</FrameworkElement.ToolTip>
+							<Run Text="{Binding State.TotalFirepower, Mode=OneWay}" />
+							<Run Text="※"
+								 Style="{DynamicResource DefaultTextElementStyleKey}" />
+						</TextBlock>
+
+						<TextBlock Grid.Row="4"
+								   Grid.Column="0"
+								   Style="{DynamicResource DefaultTextStyleKey}"
+								   HorizontalAlignment="Right"
+								   VerticalAlignment="Bottom"
+								   Margin="1,2">
+							<Run Text="{Binding Resources.Fleets_AA, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+							<Run Text=":" />
+						</TextBlock>
+						<TextBlock Grid.Row="4"
+								   Grid.Column="1"   
+								   Style="{DynamicResource EmphaticTextStyleKey}"
+								   VerticalAlignment="Bottom"
+								   Margin="4,2">
+							<FrameworkElement.ToolTip>
+								<TextBlock Style="{DynamicResource DefaultTextStyleKey}">
+									<Run Text="表示値 + 改修補正値 :" />
+									<Run Text="{Binding State.IndicatedAA, Mode=OneWay}" />
+									<Run Text="+" />
+									<Run Text="{Binding State.ImprovementAA, Mode=OneWay}" />
+								</TextBlock>
+							</FrameworkElement.ToolTip>
+							<Run Text="{Binding State.TotalAA, Mode=OneWay}" />
+							<Run Text="※"
+								 Style="{DynamicResource DefaultTextElementStyleKey}" />
+						</TextBlock>
+
+						<TextBlock Grid.Row="5"
+								   Grid.Column="0"
+								   Style="{DynamicResource DefaultTextStyleKey}"
+								   HorizontalAlignment="Right"
+								   VerticalAlignment="Bottom"
+								   Margin="1,2">
+							<Run Text="{Binding Resources.Fleets_ASW, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+							<Run Text=":" />
+						</TextBlock>
+						<TextBlock Grid.Row="5"
+								   Grid.Column="1"
+								   Style="{DynamicResource EmphaticTextStyleKey}"
+								   VerticalAlignment="Bottom"
+								   Margin="4,2">
+							<FrameworkElement.ToolTip>
+								<TextBlock Style="{DynamicResource DefaultTextStyleKey}">
+									<Run Text="表示値 + 改修補正値 :" />
+									<Run Text="{Binding State.IndicatedASW, Mode=OneWay}" />
+									<Run Text="+" />
+									<Run Text="{Binding State.ImprovementASW, Mode=OneWay}" />
+								</TextBlock>
+							</FrameworkElement.ToolTip>
+							<Run Text="{Binding State.TotalASW, Mode=OneWay}" />
+							<Run Text="※"
+								 Style="{DynamicResource DefaultTextElementStyleKey}" />
+						</TextBlock>
+
+						<TextBlock Grid.Row="6"
 								   Grid.Column="0"
 								   Style="{DynamicResource DefaultTextStyleKey}"
 								   HorizontalAlignment="Right"
@@ -635,14 +719,14 @@
 							<Run Text="索敵値" />
 							<Run Text=":" />
 						</TextBlock>
-						<TextBlock Grid.Row="3"
+						<TextBlock Grid.Row="6"
 								   Grid.Column="1"
 								   Text="{Binding State.ViewRange}"
 								   Style="{DynamicResource EmphaticTextStyleKey}"
 								   VerticalAlignment="Bottom"
 								   Margin="4,2" />
 
-						<TextBlock Grid.Row="4"
+						<TextBlock Grid.Row="7"
 								   Grid.Column="0"
 								   Style="{DynamicResource DefaultTextStyleKey}"
 								   HorizontalAlignment="Right"
@@ -653,7 +737,7 @@
 								 Style="{DynamicResource DetailTextElementStyleKey}" />
 							<Run Text=":" />
 						</TextBlock>
-						<TextBlock Grid.Row="4"
+						<TextBlock Grid.Row="7"
 								   Grid.Column="1"
 								   Style="{DynamicResource EmphaticTextStyleKey}"
 								   VerticalAlignment="Bottom"
@@ -667,7 +751,7 @@
 								 Style="{DynamicResource DefaultTextElementStyleKey}" />
 						</TextBlock>
 
-						<TextBlock Grid.Row="5"
+						<TextBlock Grid.Row="8"
 								   Grid.Column="0"
 								   Style="{DynamicResource DefaultTextStyleKey}"
 								   HorizontalAlignment="Right"
@@ -678,7 +762,7 @@
 								 Style="{DynamicResource DetailTextElementStyleKey}" />
 							<Run Text=":" />
 						</TextBlock>
-						<TextBlock Grid.Row="5"
+						<TextBlock Grid.Row="8"
 								   Grid.Column="1"
 								   Style="{DynamicResource EmphaticTextStyleKey}"
 								   VerticalAlignment="Bottom"
@@ -692,7 +776,7 @@
 								 Style="{DynamicResource DefaultTextElementStyleKey}" />
 						</TextBlock>
 
-						<TextBlock Grid.Row="7"
+						<TextBlock Grid.Row="10"
 								   Grid.Column="0"
 								   Grid.ColumnSpan="2"
 								   Text="{Binding State.Speed}"

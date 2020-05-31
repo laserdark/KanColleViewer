@@ -41,16 +41,61 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		#endregion
 
-		private int _TotalKaryoku;
+		private int _TotalFirepower;
 
-		public int TotalKaryoku
+		public int TotalFirepower
 		{
-			get { return this._TotalKaryoku; }
+			get { return this._TotalFirepower; }
 			private set
 			{
-				if (this._TotalKaryoku !=value)
+				if (this._TotalFirepower != value)
 				{
-					this._TotalKaryoku = value;
+					this._TotalFirepower = value;
+					RaisePropertyChanged();
+				}
+			}
+		}
+
+		private int _ImprovementFirepower;
+
+		public int ImprovementFirepower
+		{
+			get { return this._ImprovementFirepower; }
+			private set
+			{
+				if (this._ImprovementFirepower != value)
+				{
+					this._ImprovementFirepower = value;
+					RaisePropertyChanged();
+				}
+			}
+		}
+
+		private int _TotalAA;
+
+		public int TotalAA
+		{
+			get { return this._TotalAA; }
+			private set
+			{
+				if (this._TotalAA != value)
+				{
+					this._TotalAA = value;
+					RaisePropertyChanged();
+				}
+			}
+		}
+
+		private int _ImprovementAA;
+
+		public int ImprovementAA
+		{
+			get { return this._ImprovementAA; }
+			private set
+			{
+				if (this._ImprovementAA != value)
+				{
+					this._ImprovementAA = value;
 					RaisePropertyChanged();
 				}
 			}
@@ -63,9 +108,24 @@ namespace Grabacr07.KanColleWrapper.Models
 			get { return this._TotalASW; }
 			private set
 			{
-				if (this._TotalASW!=value)
+				if (this._TotalASW != value)
 				{
 					this._TotalASW = value;
+					RaisePropertyChanged();
+				}
+			}
+		}
+
+		private int _ImprovementASW;
+
+		public int ImprovementASW
+		{
+			get { return this._ImprovementASW; }
+			private set
+			{
+				if (this._ImprovementASW != value)
+				{
+					this._ImprovementASW = value;
 					RaisePropertyChanged();
 				}
 			}
@@ -266,8 +326,12 @@ namespace Grabacr07.KanColleWrapper.Models
 
 			this.TotalLevel = ships.HasItems() ? ships.Sum(x => x.Level) : 0;
 			this.AverageLevel = ships.HasItems() ? (double)this.TotalLevel / ships.Length : 0.0;
-			this.TotalKaryoku = ships.HasItems() ? ships.Sum(x => x.Karyoku) : 0;
-			this.TotalASW = ships.HasItems() ? ships.Sum(x => x.ASW) : 0;
+			this.ImprovementFirepower = ships.HasItems() ? (int)ships.GetImprovementBonus(ImprovementBonusCalculationOptions.Firepower) : 0;
+			this.TotalFirepower = ships.HasItems() ? ships.Sum(x => x.Karyoku) + this.ImprovementFirepower : 0;
+			this.ImprovementAA = ships.HasItems() ? (int)ships.GetImprovementBonus(ImprovementBonusCalculationOptions.AA) : 0;
+			this.TotalAA = ships.HasItems() ? ships.Sum(x => x.Taiku) + this.ImprovementAA : 0;
+			this.ImprovementASW = ships.HasItems() ? (int)ships.GetImprovementBonus(ImprovementBonusCalculationOptions.ASW) : 0;
+			this.TotalASW = ships.HasItems() ? ships.Sum(x => x.ASW) + this.ImprovementASW : 0;
 			this.MinAirSuperiorityPotential = firstFleetShips.Sum(x => x.GetAirSuperiorityPotential(AirSuperiorityCalculationOptions.Minimum));
 			this.MaxAirSuperiorityPotential = firstFleetShips.Sum(x => x.GetAirSuperiorityPotential(AirSuperiorityCalculationOptions.Maximum));
 			this.Speed = new FleetSpeed(Array.ConvertAll(ships, x => x.Speed));
