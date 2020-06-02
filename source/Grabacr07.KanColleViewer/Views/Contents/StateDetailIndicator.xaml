@@ -63,15 +63,7 @@
 				<Grid>
 					<VisualStateManager.VisualStateGroups>
 						<VisualStateGroup x:Name="VisualStateGroup">
-							<VisualState x:Name="Normal">
-								<Storyboard>
-									<ColorAnimationUsingKeyFrames Storyboard.TargetName="Border"
-																  Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
-										<EasingColorKeyFrame KeyTime="0"
-															 Value="#FF5A2020" />
-									</ColorAnimationUsingKeyFrames>
-								</Storyboard>
-							</VisualState>
+							<VisualState x:Name="Normal" />
 							<VisualState x:Name="Blinking">
 								<Storyboard AutoReverse="True"
 											RepeatBehavior="Forever">
@@ -82,18 +74,13 @@
 										<EasingColorKeyFrame KeyTime="0:0:0.3"
 															 Value="#FFB40000" />
 									</ColorAnimationUsingKeyFrames>
-									<ObjectAnimationUsingKeyFrames Storyboard.TargetName="Text"
-																   Storyboard.TargetProperty="Text">
-										<DiscreteObjectKeyFrame KeyTime="0"
-																Value="{Binding Resources.Fleets_Situation_HeavilyDamaged, Source={x:Static models:ResourceService.Current}, Mode=OneWay, StringFormat='{}{0}！！！'}" />
-									</ObjectAnimationUsingKeyFrames>
 								</Storyboard>
 							</VisualState>
 						</VisualStateGroup>
 					</VisualStateManager.VisualStateGroups>
 
 					<Border x:Name="Border"
-							Background="Transparent"
+							Background="#FF5A2020"
 							Padding="8,4">
 						<TextBlock x:Name="Text"
 								   Text="{Binding Resources.Fleets_Situation_InSortie, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
@@ -136,6 +123,15 @@
 						</TextBlock>
 					</Border>
 				</Grid>
+				
+				<DataTemplate.Triggers>
+					<DataTrigger Binding="{Binding State.Situation, Converter={StaticResource HasFlagConverter}, ConverterParameter=Sortie|HeavilyDamaged}"
+								 Value="True">
+						<Setter TargetName="Text"
+								Property="Text"
+								Value="{Binding Resources.Fleets_Situation_HeavilyDamaged, Source={x:Static models:ResourceService.Current}, Mode=OneWay, StringFormat={}{0}！！！}" />
+					</DataTrigger>
+				</DataTemplate.Triggers>
 			</DataTemplate>
 
 			<DataTemplate DataType="{x:Type fleets:ExpeditionViewModel}">
