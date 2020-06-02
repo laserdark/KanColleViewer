@@ -160,7 +160,7 @@
     <value>该建造坞被锁定</value>
   </data>
   <data name="Dockyard_NotificationMessage" xml:space="preserve">
-    <value>工厂的第 {0} 个建造坞的{1}建造完毕。</value>
+    <value>工厂中第 {0} 个建造坞的{1}建造完毕。</value>
   </data>
   <data name="Dockyard_NotificationMessage_Title" xml:space="preserve">
     <value>建造完毕</value>
@@ -187,7 +187,7 @@
     <value>远征</value>
   </data>
   <data name="Expedition_NoExpedition" xml:space="preserve">
-    <value>该舰队没有在远征中。</value>
+    <value>该舰队未处在远征中。</value>
   </data>
   <data name="Expedition_NotificationMessage" xml:space="preserve">
     <value>「{0}」远征归来。</value>
@@ -283,10 +283,10 @@
     <value>入渠</value>
   </data>
   <data name="Repairyard_Locked" xml:space="preserve">
-    <value>该船坞被锁定</value>
+    <value>该修理渠被锁定</value>
   </data>
   <data name="Repairyard_NotificationMessage" xml:space="preserve">
-    <value>修理渠的第 {0} 船坞的「{1}」修理完毕。</value>
+    <value>修理渠中第 {0} 船坞的「{1}」修理完毕。</value>
   </data>
   <data name="Repairyard_NotificationMessage_Title" xml:space="preserve">
     <value>修理完毕</value>
@@ -679,7 +679,7 @@
     <value>还没准备好出击</value>
   </data>
   <data name="FleetWindow_Situation_NoExpedition" xml:space="preserve">
-    <value>未在远征中</value>
+    <value>未处在远征中</value>
   </data>
   <data name="FleetWindow_Situation_InCombined" xml:space="preserve">
     <value>在联合舰队编制中，无法远征</value>
