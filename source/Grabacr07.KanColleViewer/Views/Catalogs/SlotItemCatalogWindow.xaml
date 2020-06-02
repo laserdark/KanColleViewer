@@ -180,7 +180,7 @@
 												BorderBrush="{DynamicResource BorderBrushKey}">
 											<TextBlock>
 												<Run Text="所持数" />
-												<Run Text="{Binding Resources.SlotItemCatalogWindow_ColumnHeaderRemainder, Source={x:Static models:ResourceService.Current}, Mode=OneWay, StringFormat='({0})'}"
+												<Run Text="{Binding Resources.SlotItemCatalogWindow_ColumnHeaderRemainder, Source={x:Static models:ResourceService.Current}, Mode=OneWay, StringFormat=({0})}"
 													 FontSize="11" />
 											</TextBlock>
 										</Border>

@@ -220,7 +220,7 @@
 																   Value="True" />
 													</MultiDataTrigger.Conditions>
 													<Setter Property="Text"
-															Value="{Binding Resources.SlotItem_DamageControl, Source={x:Static models:ResourceService.Current}, Mode=OneWay, StringFormat='健在・{0}搭載'}" />
+															Value="{Binding Resources.SlotItem_DamageControl, Source={x:Static models:ResourceService.Current}, Mode=OneWay, StringFormat=健在・{0}搭載}" />
 												</MultiDataTrigger>
 												<MultiDataTrigger>
 													<MultiDataTrigger.Conditions>
@@ -240,7 +240,7 @@
 																   Value="True" />
 													</MultiDataTrigger.Conditions>
 													<Setter Property="Text"
-															Value="{Binding Resources.SlotItem_DamageControl, Source={x:Static models:ResourceService.Current}, Mode=OneWay, StringFormat='大破 ({0}使用可能)'}" />
+															Value="{Binding Resources.SlotItem_DamageControl, Source={x:Static models:ResourceService.Current}, Mode=OneWay, StringFormat=大破 ({0}使用可能)}" />
 													<Setter Property="Background"
 															Value="{DynamicResource FleetRepairingBrushKey}" />
 												</MultiDataTrigger>
@@ -603,7 +603,7 @@
 								   HorizontalAlignment="Right"
 								   VerticalAlignment="Bottom"
 								   Margin="1,2">
-							<Run Text="{Binding Resources.Fleets_Level, Source={x:Static models:ResourceService.Current}, Mode=OneWay, StringFormat='合計{0}'}" />
+							<Run Text="{Binding Resources.Fleets_Level, Source={x:Static models:ResourceService.Current}, Mode=OneWay, StringFormat=合計{0}}" />
 							<Run Text=":" />
 						</TextBlock>
 						<TextBlock Grid.Row="0"
@@ -619,7 +619,7 @@
 								   HorizontalAlignment="Right"
 								   VerticalAlignment="Bottom"
 								   Margin="1,2">
-							<Run Text="{Binding Resources.Fleets_Level, Source={x:Static models:ResourceService.Current}, Mode=OneWay, StringFormat='平均{0}'}" />
+							<Run Text="{Binding Resources.Fleets_Level, Source={x:Static models:ResourceService.Current}, Mode=OneWay, StringFormat=平均{0}}" />
 							<Run Text=":" />
 						</TextBlock>
 						<TextBlock Grid.Row="1"
@@ -969,7 +969,7 @@
 															   Value="True" />
 												</MultiDataTrigger.Conditions>
 												<Setter Property="Text"
-														Value="{Binding Resources.Fleets_Situation_HeavilyDamaged, Source={x:Static models:ResourceService.Current}, Mode=OneWay, StringFormat='{}{0}'}" />
+														Value="{Binding Resources.Fleets_Situation_HeavilyDamaged, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 												<Setter Property="Foreground"
 														Value="{DynamicResource ActiveForegroundBrushKey}" />
 												<Setter Property="Background"
@@ -981,7 +981,7 @@
 															   Value="True" />
 												</MultiDataTrigger.Conditions>
 												<Setter Property="Text"
-														Value="{Binding Resources.Fleets_Situation_HeavilyDamaged, Source={x:Static models:ResourceService.Current}, Mode=OneWay, StringFormat='{}{0}!'}" />
+														Value="{Binding Resources.Fleets_Situation_HeavilyDamaged, Source={x:Static models:ResourceService.Current}, Mode=OneWay, StringFormat={}{0}！}" />
 												<Setter Property="Foreground"
 														Value="{DynamicResource ActiveForegroundBrushKey}" />
 											</MultiDataTrigger>

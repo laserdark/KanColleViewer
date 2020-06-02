@@ -107,7 +107,7 @@
 																	  Height="12"
 																	  Margin="0,2,4,1" />
 										<TextBlock x:Name="FleetName"
-												   Text="{Binding Id, StringFormat='/{0}'}"
+												   Text="{Binding Id, StringFormat=/{0}}"
 												   Style="{DynamicResource DefaultTextStyleKey}"
 												   Foreground="{DynamicResource ActiveForegroundBrushKey}" />
 									</StackPanel>
