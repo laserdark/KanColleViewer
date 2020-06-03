@@ -241,7 +241,7 @@
 			<Border Height="8" />
 			<StackPanel Orientation="Horizontal"
 						HorizontalAlignment="Right">
-				<TextBlock Text="{Binding Resources.Settings_Proxy_Restart2Apply, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+				<TextBlock Text="{Binding Resources.Settings_Restart2Apply, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 						   Style="{DynamicResource DetailTextStyleKey}"
 						   Margin="16,8" />
 
@@ -265,7 +265,7 @@
 				   Style="{DynamicResource SettingsHeaderTextStyleKey}" />
 
 		<StackPanel Margin="20,0,0,0">
-			<TextBlock Text="{Binding Resources.Settings_Proxy_Restart2Apply, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+			<TextBlock Text="{Binding Resources.Settings_Restart2Apply, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 					   Style="{DynamicResource DetailTextStyleKey}" />
 
 			<Border Height="8" />

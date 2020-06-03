@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Grabacr07.KanColleViewer.Views.Settings.Browser"
+<UserControl x:Class="Grabacr07.KanColleViewer.Views.Settings.Browser"
 			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 			 xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
@@ -67,6 +67,22 @@
 					   Text="ウィンドウ上部のボタンでゲーム画面 (Internet Explorer) の表示サイズを変更できます。スクリーンショットは常に 100 % のサイズで撮影され、表示サイズ設定の影響を受けません。"
 					   Foreground="{DynamicResource ActiveForegroundBrushKey}" />
 		</DockPanel>
+
+		<Rectangle Style="{DynamicResource SeparatorStyleKey}" />
+
+		<TextBlock Text="帧数设置"
+					   Style="{DynamicResource SettingsHeaderTextStyleKey}" />
+		<StackPanel Margin="20,0,0,0"
+					Orientation="Horizontal">
+			<RadioButton Content="30 fps"
+						 IsChecked="{Binding IsHighFrameRate, Mode=TwoWay,Converter={StaticResource ReverseBooleanConverter}}" />
+			<RadioButton Content="60 fps"
+						 Margin="20,2,0,0"
+						 IsChecked="{Binding IsHighFrameRate, Mode=TwoWay}" />
+			<TextBlock Text="{Binding Resources.Settings_Restart2Apply, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+					   Margin="20,2,0,0"
+					   Style="{DynamicResource DetailTextStyleKey}" />
+		</StackPanel>
 
 		<Rectangle Style="{DynamicResource SeparatorStyleKey}" />
 	</StackPanel>

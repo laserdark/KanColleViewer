@@ -561,7 +561,7 @@
   <data name="Settings_Proxy_SystemProxy_Description" xml:space="preserve">
     <value>使用「Internet选项」设置进行通信。</value>
   </data>
-  <data name="Settings_Proxy_Restart2Apply" xml:space="preserve">
+  <data name="Settings_Restart2Apply" xml:space="preserve">
     <value>※重启程序以使设置生效。</value>
   </data>
   <data name="Common_NoResult" xml:space="preserve">

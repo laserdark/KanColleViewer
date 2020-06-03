@@ -586,7 +586,7 @@
   <data name="Settings_Proxy_SystemProxy_Description" xml:space="preserve">
     <value>「インターネット オプション」の設定を用いて通信を行います。</value>
   </data>
-  <data name="Settings_Proxy_Restart2Apply" xml:space="preserve">
+  <data name="Settings_Restart2Apply" xml:space="preserve">
     <value>※反映にはアプリケーションの再起動が必要です。</value>
   </data>
   <data name="Button_Retry" xml:space="preserve">
