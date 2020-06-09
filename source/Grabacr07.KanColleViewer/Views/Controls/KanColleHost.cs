@@ -49,7 +49,7 @@ namespace Grabacr07.KanColleViewer.Views.Controls
 		{		
 			var instance = (KanColleHost)d;
 			var newBrowser = (ChromiumWebBrowser)e.NewValue;
-			if(GeneralSettings.IsHighFrameRate.Value) newBrowser.BrowserSettings.WindowlessFrameRate = 60;
+			if (GeneralSettings.IsHighFrameRate) newBrowser.BrowserSettings.WindowlessFrameRate = 60;
 			var oldBrowser = (ChromiumWebBrowser)e.OldValue;
 
 			if (oldBrowser != null)
