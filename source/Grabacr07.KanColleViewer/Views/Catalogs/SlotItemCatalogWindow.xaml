@@ -271,14 +271,15 @@
 																</ItemsControl.Template>
 																<ItemsControl.ItemTemplate>
 																	<DataTemplate>
-																		<TextBlock Margin="0,4,18,0">
+																		<TextBlock Margin="0,4,18,0"
+																				   FontSize="11">
 																			<Run Text="{Binding Ship.Info.Name, Mode=OneWay}"
-																				 Foreground="{DynamicResource ActiveForegroundBrushKey}" />
-																			<Run Text="{Binding Ship.Level, StringFormat=Lv.{0}, Mode=OneWay}"
-																				 FontSize="11" />
+																				 Foreground="{DynamicResource ActiveForegroundBrushKey}"
+																				 FontSize="12" />
+																			<Run Text="Lv." />
+																			<Run Text="{Binding Ship.Level, Mode=OneWay}" />
 																			<Run Text="{Binding CountString, Mode=OneWay}"
-																				 Background="{DynamicResource BackgroundBrushKey}"
-																				 FontSize="11" />
+																				 Background="{DynamicResource BackgroundBrushKey}" />
 																		</TextBlock>
 																	</DataTemplate>
 																</ItemsControl.ItemTemplate>

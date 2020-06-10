@@ -221,9 +221,11 @@
   </data>
   <data name="Homeport_InstantBuild" xml:space="preserve">
     <value>高速建造材:</value>
+    <comment>NoLongerExist</comment>
   </data>
   <data name="Homeport_InstantRepair" xml:space="preserve">
     <value>高速修復材:</value>
+    <comment>NoLongerExist</comment>
   </data>
   <data name="Homeport_NoOfEquipment" xml:space="preserve">
     <value>保有装備:</value>

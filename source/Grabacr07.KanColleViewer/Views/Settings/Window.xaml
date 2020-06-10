@@ -67,8 +67,10 @@
 								  SelectedValue="{Binding Source={x:Static ms:GeneralSettings.TaskbarProgressSource}, Path=Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 								  Prompt="" />
 			<TextBlock Grid.Row="2"
-					   Grid.Column="0"
-					   Text="{Binding Resources.Settings_Window_Taskbar_ProgressIndicator, Source={x:Static models:ResourceService.Current}, Mode=OneWay,StringFormat={}{0}(出撃中)}" />
+					   Grid.Column="0">
+				<Run Text="{Binding Resources.Settings_Window_Taskbar_ProgressIndicator, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+				<Run Text="(出撃中)" />
+			</TextBlock>
 			<metro:PromptComboBox Grid.Row="2"
 								  Grid.Column="2"
 								  ItemsSource="{Binding TaskbarProgressFeatures}"

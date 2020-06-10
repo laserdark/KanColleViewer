@@ -271,7 +271,7 @@
     <value>每日任务</value>
   </data>
   <data name="Quests_Notice" xml:space="preserve">
-    <value>※任务完成状况(50 %, 80 %) 和游戏内显示的相同。敌方舰队击破数和远征成功数等不能被显示。</value>
+    <value>※任务完成状况 (50 %, 80 %) 和游戏内显示的相同。敌方舰队击破数和远征成功数等不能被显示。</value>
   </data>
   <data name="Quests_Untaken" xml:space="preserve">
     <value>请点击游戏中的 [任務 (クエスト)]，以便取得任务信息。</value>
@@ -400,7 +400,7 @@
     <value>将窗口放在屏幕左端</value>
   </data>
   <data name="Settings_WindowControl_LocationLeftButton_Sub" xml:space="preserve">
-    <value>8英寸屏使用(800 x 1280)</value>
+    <value>8 英寸屏使用 (800 x 1280)</value>
   </data>
   <data name="Settings_Window_TopMost" xml:space="preserve">
     <value>永远保持在最前端</value>
@@ -418,7 +418,7 @@
     <value>准备完毕</value>
   </data>
   <data name="ZoomAction_OutOfRange" xml:space="preserve">
-    <value>无法在 {0} %范围内缩放。</value>
+    <value>无法在 {0} % 范围内缩放。</value>
   </data>
   <data name="ZoomAction_ZoomFailed" xml:space="preserve">
     <value>缩放失败: {0}</value>
@@ -523,7 +523,7 @@
     <value>任务栏指示器</value>
   </data>
   <data name="PluginInfo_Functions_Tool" xml:space="preserve">
-    <value>在[工具]中显示</value>
+    <value>在 [工具] 中显示</value>
   </data>
   <data name="Settings_Plugins_Loaded" xml:space="preserve">
     <value>已加载的插件</value>
@@ -532,7 +532,7 @@
     <value>下列插件已加载。可在此对更改各插件的设置。</value>
   </data>
   <data name="ProxyBootstrapper_Set2Retry" xml:space="preserve">
-    <value>※请更改设置后，单击[重试]按钮。</value>
+    <value>※请更改设置后，单击 [重试] 按钮。</value>
   </data>
   <data name="Settings_LocalListeningPort" xml:space="preserve">
     <value>本地监听端口设置</value>
@@ -553,13 +553,13 @@
     <value>由代理服务器中继进行通信。</value>
   </data>
   <data name="Settings_Proxy_SpecificProxy_Description2" xml:space="preserve">
-    <value>建议通过IP地址指定代理，由主机名指定可能存在解析缓慢等问题。</value>
+    <value>建议通过 IP 地址指定代理，由主机名指定可能存在解析缓慢等问题。</value>
   </data>
   <data name="Settings_Proxy_SystemProxy" xml:space="preserve">
-    <value>使用Internet Explorer代理设置</value>
+    <value>使用 Internet Explorer 代理设置</value>
   </data>
   <data name="Settings_Proxy_SystemProxy_Description" xml:space="preserve">
-    <value>使用「Internet选项」设置进行通信。</value>
+    <value>使用「Internet 选项」设置进行通信。</value>
   </data>
   <data name="Settings_Restart2Apply" xml:space="preserve">
     <value>※重启程序以使设置生效。</value>
@@ -583,10 +583,10 @@
     <value>当旗舰为工作艦时，判定该舰队不可出撃</value>
   </data>
   <data name="Settings_Operation_FleetsStatus_ReSortieCondition" xml:space="preserve">
-    <value>当同一舰队中全舰的condition值不小于如下设定值时，判定该舰队可出击</value>
+    <value>当同一舰队中全舰的 condition 值不小于如下设定值时，判定该舰队可出击</value>
   </data>
   <data name="Settings_Operation_FleetsStatus_ReSortieCondition_Description" xml:space="preserve">
-    <value>※通常设定为「給」按钮常亮值40或自然恢复上限值49。</value>
+    <value>※通常设定为「給」按钮常亮值 40 或自然恢复上限值 49。</value>
   </data>
   <data name="Settings_Operation_ViewRange_CombinedEnable" xml:space="preserve">
     <value>组成联合舰队时，索敵值由以下舰队的索敵值表征</value>
@@ -598,19 +598,19 @@
     <value>通知时间提前</value>
   </data>
   <data name="Settings_Notifications_ShorteningTime_Description" xml:space="preserve">
-    <value>基于艦これ的机制，最多可以缩短1分钟的时间。考虑到与服务器间存在的时间差异，建议设定在40~50秒左右。</value>
+    <value>基于艦これ的机制，最多可以缩短 1 分钟的时间。考虑到与服务器间存在的时间差异，建议设定在 40 秒 ~ 50 秒左右。</value>
   </data>
   <data name="ReSortie_Notifications_Enable" xml:space="preserve">
     <value>疲劳恢复完毕时通知</value>
   </data>
   <data name="Settings_Notifications_ReSortieCondition_Title" xml:space="preserve">
-    <value>判定舰队可出击的condition值</value>
+    <value>判定舰队可出击的 condition 值</value>
   </data>
   <data name="Settings_Notifications_ReSortieCondition_Title_Description2" xml:space="preserve">
-    <value>当同一舰队中全舰的condition值不小于上述值时进行通知。Condition值每3分钟恢复3点，另外由于KanColleViewer实现机制的关系，通知时间与实际情况相比可能会有至多3分钟的延迟。</value>
+    <value>当同一舰队中全舰的 condition 值不小于上述值时进行通知。Condition 值每 3 分钟恢复 3 点，另外由于 KanColleViewer 实现机制的关系，通知时间与实际情况相比可能会有至多 3 分钟的延迟。</value>
   </data>
   <data name="Settings_Notifications_ReSortieCondition_Title_Description1" xml:space="preserve">
-    <value>※可在[行为设置] &gt; [舰队状态] 中进行更改。</value>
+    <value>※可在 [行为设置] &gt; [舰队状态] 中进行更改。</value>
   </data>
   <data name="ShipCatalogWindow_FilterSettings" xml:space="preserve">
     <value>筛选</value>
@@ -667,7 +667,7 @@
     <value>未装备</value>
   </data>
   <data name="CatalogWindow_GeneratingList" xml:space="preserve">
-    <value>生成中…</value>
+    <value>生成中……</value>
   </data>
   <data name="FleetWindow_Situation_NotInSortie" xml:space="preserve">
     <value>舰队未出击</value>
