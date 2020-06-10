@@ -9,7 +9,8 @@
 			 xmlns:vmContents="clr-namespace:Grabacr07.KanColleViewer.ViewModels.Contents"
 			 xmlns:dev="clr-namespace:Grabacr07.KanColleViewer.ViewModels.Dev"
 			 xmlns:models="clr-namespace:Grabacr07.KanColleViewer.Models"
-			 xmlns:settings="clr-namespace:Grabacr07.KanColleViewer.ViewModels.Settings"
+			 xmlns:vmsettings="clr-namespace:Grabacr07.KanColleViewer.ViewModels.Settings"
+			 xmlns:settings="clr-namespace:Grabacr07.KanColleViewer.Models.Settings"
 			 mc:Ignorable="d"
 			 d:DesignHeight="25"
 			 d:DesignWidth="780">
@@ -54,12 +55,21 @@
 						<TextBlock Text="{Binding Source={x:Static models:ResourceService.Current}, Path=Resources.Fleets_Level, StringFormat='{}{0}: '}" />
 						<TextBlock Text="{Binding State.TotalLevel}"
 								   MinWidth="45" />
-						<TextBlock Text="{Binding Source={x:Static models:ResourceService.Current}, Path=Resources.Fleets_Firepower, StringFormat='{}{0}: '}" />
+						<TextBlock Text="{Binding Source={x:Static models:ResourceService.Current}, Path=Resources.Fleets_Firepower, StringFormat='{}{0}: '}"
+								   Visibility="{Binding Source={x:Static settings:KanColleSettings.DisplayFirepowerInStatusBar}, Path=Value, Converter={StaticResource BooleanToVisibilityConverter}}" />
 						<TextBlock Text="{Binding State.TotalFirepower}"
-								   MinWidth="45" />
-						<TextBlock Text="{Binding Source={x:Static models:ResourceService.Current}, Path=Resources.Fleets_ASW, StringFormat='{}{0}: '}" />
+								   MinWidth="45"
+								   Visibility="{Binding Source={x:Static settings:KanColleSettings.DisplayFirepowerInStatusBar}, Path=Value, Converter={StaticResource BooleanToVisibilityConverter}}" />
+						<TextBlock Text="{Binding Source={x:Static models:ResourceService.Current}, Path=Resources.Fleets_AA, StringFormat='{}{0}: '}"
+								   Visibility="{Binding Source={x:Static settings:KanColleSettings.DisplayAAInStatusBar}, Path=Value, Converter={StaticResource BooleanToVisibilityConverter}}" />
+						<TextBlock Text="{Binding State.TotalAA}"
+								   MinWidth="45"
+								   Visibility="{Binding Source={x:Static settings:KanColleSettings.DisplayAAInStatusBar}, Path=Value, Converter={StaticResource BooleanToVisibilityConverter}}" />
+						<TextBlock Text="{Binding Source={x:Static models:ResourceService.Current}, Path=Resources.Fleets_ASW, StringFormat='{}{0}: '}"
+								   Visibility="{Binding Source={x:Static settings:KanColleSettings.DisplayASWInStatusBar}, Path=Value, Converter={StaticResource BooleanToVisibilityConverter}}" />
 						<TextBlock Text="{Binding State.TotalASW}"
-								   MinWidth="45" />
+								   MinWidth="45"
+								   Visibility="{Binding Source={x:Static settings:KanColleSettings.DisplayASWInStatusBar}, Path=Value, Converter={StaticResource BooleanToVisibilityConverter}}" />
 						<TextBlock Text="{Binding Source={x:Static models:ResourceService.Current}, Path=Resources.Fleets_ViewRange, StringFormat='{}{0}: '}" />
 						<TextBlock Text="{Binding State.ViewRange}"
 								   MinWidth="60" />
@@ -75,7 +85,7 @@
 				<DataTemplate DataType="{x:Type vmContents:QuestsViewModel}" />
 				<DataTemplate DataType="{x:Type vmContents:ExpeditionsViewModel}" />
 				<DataTemplate DataType="{x:Type vmContents:ToolsViewModel}" />
-				<DataTemplate DataType="{x:Type settings:SettingsViewModel}" />
+				<DataTemplate DataType="{x:Type vmsettings:SettingsViewModel}" />
 				<DataTemplate DataType="{x:Type dev:DebugTabViewModel}" />
 			</ContentControl.Resources>
 		</ContentControl>

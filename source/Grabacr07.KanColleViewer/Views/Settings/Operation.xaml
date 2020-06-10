@@ -134,5 +134,26 @@
 		</StackPanel>
 
 		<Rectangle Style="{DynamicResource SeparatorStyleKey}" />
+
+		<TextBlock Text="舰队状态栏"
+				   Style="{DynamicResource SettingsHeaderTextStyleKey}" />
+
+		<StackPanel Margin="20,0,0,0">
+			<TextBlock Text="选中 [舰队] 时，在状态栏中显示该舰队以下属性的合计值"
+					   Margin="0,0,0,5"/>
+
+			<StackPanel Orientation="Horizontal">
+				<CheckBox Content="{Binding Resources.Fleets_Firepower, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+						  Margin="0,0,20,0"
+						  IsChecked="{Binding Source={x:Static ms:KanColleSettings.DisplayFirepowerInStatusBar},Path=Value}" />
+				<CheckBox Content="{Binding Resources.Fleets_AA, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+						  Margin="0,0,20,0"
+						  IsChecked="{Binding Source={x:Static ms:KanColleSettings.DisplayAAInStatusBar},Path=Value}" />
+				<CheckBox Content="{Binding Resources.Fleets_ASW, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+						  IsChecked="{Binding Source={x:Static ms:KanColleSettings.DisplayASWInStatusBar},Path=Value}" />
+			</StackPanel>
+		</StackPanel>
+		
+		<Rectangle Style="{DynamicResource SeparatorStyleKey}" />
 	</StackPanel>
 </UserControl>
