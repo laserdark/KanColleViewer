@@ -11,7 +11,7 @@ namespace Grabacr07.KanColleWrapper.Models
 		Firepower,
 		AA,
 		ASW,
-		ViewRange,
+		LoS,
 	}
 	public static class ExpeditionImprovementBonus
 	{
@@ -41,8 +41,8 @@ namespace Grabacr07.KanColleWrapper.Models
 				case ImprovementBonusCalculationOptions.ASW:
 					return new ASWCalculator();
 
-				case ImprovementBonusCalculationOptions.ViewRange:
-					return new ViewRangeCalculator();
+				case ImprovementBonusCalculationOptions.LoS:
+					return new LoSCalculator();
 
 				default:
 					return EmptyCalculator.Instance;
@@ -105,7 +105,7 @@ namespace Grabacr07.KanColleWrapper.Models
 				switch (slotItem.Info.Type)
 				{
 					case SlotItemType.ソナー:
-					case SlotItemType.大型ソナー:
+					case SlotItemType.大型ソナー: // 改修未実装なのでﾃｷﾄｰ
 					case SlotItemType.爆雷:
 						return Math.Sqrt(slotItem.Level);
 
@@ -115,7 +115,7 @@ namespace Grabacr07.KanColleWrapper.Models
 			}
 		}
 
-		private class ViewRangeCalculator : ImprovementBonusCalculator
+		private class LoSCalculator : ImprovementBonusCalculator
 		{
 			public override double GetImprovementBonus(SlotItem slotItem)
 			{
