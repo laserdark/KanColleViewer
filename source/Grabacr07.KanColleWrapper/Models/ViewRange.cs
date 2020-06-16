@@ -235,7 +235,7 @@ namespace Grabacr07.KanColleWrapper.Models
 
 			var nodefactor = KanColleClient.Current.Settings.ViewRangeCalcNodeFactor;
 
-			return nodefactor * itemScore + shipScore - admiralScore + vacancyScore;
+			return nodefactor * itemScore + shipScore - (isCombined ? 2 : 1) * admiralScore + vacancyScore;
 		}
 
 		private Ship[] GetTargetShips(Fleet[] fleets)
@@ -285,11 +285,13 @@ namespace Grabacr07.KanColleWrapper.Models
 			switch (type)
 			{
 				case SlotItemType.小口径主砲:
+				case SlotItemType.中口径主砲:
 				case SlotItemType.艦上戦闘機:
 				case SlotItemType.艦上爆撃機:
 				case SlotItemType.小型電探:
 				case SlotItemType.大型電探:
-				case SlotItemType.ソナー: // 推測する
+				case SlotItemType.ソナー:
+				case SlotItemType.特殊潜航艇:
 				case SlotItemType.オートジャイロ:
 				case SlotItemType.対潜哨戒機:
 				case SlotItemType.探照灯:
