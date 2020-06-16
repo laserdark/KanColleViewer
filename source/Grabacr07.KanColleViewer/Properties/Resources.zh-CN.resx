@@ -589,10 +589,10 @@
     <value>※通常设定为「給」按钮常亮值 40 或自然恢复上限值 49。</value>
   </data>
   <data name="Settings_Operation_ViewRange_CombinedEnable" xml:space="preserve">
-    <value>组成联合舰队时，索敵值由以下舰队的索敵值表征</value>
+    <value>组成联合舰队时，使用以下舰队的索敌值表征</value>
   </data>
   <data name="Settings_Operation_ViewRange_Title" xml:space="preserve">
-    <value>使用以下公式计算舰队的索敵值</value>
+    <value>使用 33 式索敌公式计算舰队的索敌值</value>
   </data>
   <data name="Settings_Notifications_ShorteningTime" xml:space="preserve">
     <value>通知时间提前</value>
@@ -710,5 +710,8 @@
   </data>
   <data name="Settings_Window_Layout_Merged" xml:space="preserve">
     <value>合并显示</value>
+  </data>
+  <data name="Fleets_ViewRange" xml:space="preserve">
+    <value>33 式索敌值</value>
   </data>
 </root>

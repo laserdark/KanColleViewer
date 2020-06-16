@@ -122,9 +122,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Settings
 				});
 
 			this.ViewRangeSettingsCollection = ViewRangeCalcLogic.Logics.ToList();
-			this.SelectedViewRangeCalcType = this.ViewRangeSettingsCollection
-				.FirstOrDefault(x => x.Id == KanColleSettings.ViewRangeCalcType)
-				?? this.ViewRangeSettingsCollection.First();
+			this.SelectedViewRangeCalcType = this.ViewRangeSettingsCollection.Last();
 
 			this.LoadedPlugins = new List<PluginViewModel>(
 				PluginService.Current.Plugins.Select(x => new PluginViewModel(x)));
