@@ -51,17 +51,12 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		private abstract class ImprovementBonusCalculator
 		{
-			public double GetImprovementBonus(SlotItem slotItem)
-			{
-				return this._GetImprovementBonus(slotItem);
-			}
-
-			protected abstract double _GetImprovementBonus(SlotItem slotItem);
+			public abstract double GetImprovementBonus(SlotItem slotItem);
 		}
 
 		private class FirepowerCalculator: ImprovementBonusCalculator
 		{
-			protected override double _GetImprovementBonus(SlotItem slotItem)
+			public override double GetImprovementBonus(SlotItem slotItem)
 			{
 				switch (slotItem.Info.Type)
 				{
@@ -86,7 +81,7 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		private class AACalculator : ImprovementBonusCalculator
 		{
-			protected override double _GetImprovementBonus(SlotItem slotItem)
+			public override double GetImprovementBonus(SlotItem slotItem)
 			{
 				switch (slotItem.Info.IconType)
 				{
@@ -105,7 +100,7 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		private class ASWCalculator : ImprovementBonusCalculator
 		{
-			protected override double _GetImprovementBonus(SlotItem slotItem)
+			public override double GetImprovementBonus(SlotItem slotItem)
 			{
 				switch (slotItem.Info.Type)
 				{
@@ -122,7 +117,7 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		private class ViewRangeCalculator : ImprovementBonusCalculator
 		{
-			protected override double _GetImprovementBonus(SlotItem slotItem)
+			public override double GetImprovementBonus(SlotItem slotItem)
 			{
 				switch (slotItem.Info.Type)
 				{
@@ -141,7 +136,7 @@ namespace Grabacr07.KanColleWrapper.Models
 		{
 			public static EmptyCalculator Instance { get; } = new EmptyCalculator();
 			
-			protected override double _GetImprovementBonus(SlotItem slotItem) => .0;
+			public override double GetImprovementBonus(SlotItem slotItem) => .0;
 
 			private EmptyCalculator() { }
 		}
