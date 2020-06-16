@@ -27,15 +27,10 @@
 			<TextBlock Text="{Binding Resources.Settings_Operation_FleetsStatus_ReSortieCondition, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 
 			<Border Height="4" />
-			<Grid>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="Auto" />
-					<ColumnDefinition Width="10" />
-					<ColumnDefinition />
-				</Grid.ColumnDefinitions>
-
+			<DockPanel>
 				<metro:PromptTextBox Prompt="例: 40"
-									 Width="60">
+									 Width="60"
+									 VerticalAlignment="Center">
 					<metro:PromptTextBox.Text>
 						<Binding Source="{x:Static ms:KanColleSettings.ReSortieCondition}"
 								 Path="Value"
@@ -47,11 +42,12 @@
 						</Binding>
 					</metro:PromptTextBox.Text>
 				</metro:PromptTextBox>
-				<TextBlock Grid.Column="2"
-						   Style="{DynamicResource DetailTextStyleKey}">
+
+				<Border Width="10" />
+				<TextBlock Style="{DynamicResource DetailTextStyleKey}">
 					<Run Text="{Binding Resources.Settings_Operation_FleetsStatus_ReSortieCondition_Description, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 				</TextBlock>
-			</Grid>
+			</DockPanel>
 
 			<Border Height="12" />
 			<CheckBox Content="{Binding Resources.Settings_Operation_FleetsStatus_RepairShipCheckBox, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
@@ -66,43 +62,51 @@
 		<StackPanel Margin="20,0,0,0">
 			<TextBlock Text="{Binding Resources.Settings_Operation_ViewRange_Title, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 
-			<metro:PromptComboBox ItemsSource="{Binding ViewRangeSettingsCollection}"
+			<!--<metro:PromptComboBox ItemsSource="{Binding ViewRangeSettingsCollection}"
 								  Margin="0,5"
 								  DisplayMemberPath="Name"
 								  SelectedItem="{Binding SelectedViewRangeCalcType}"
 								  MinWidth="100"
 								  Prompt=""
-								  HorizontalAlignment="Left"/>
-			
-			<Grid Visibility="{Binding SelectedViewRangeCalcType.HasCombinedSettings, Converter={StaticResource BooleanToVisibilityConverter}}">
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="Auto" />
-					<ColumnDefinition Width="10" />
-					<ColumnDefinition />
-				</Grid.ColumnDefinitions>
+								  HorizontalAlignment="Left"/>-->
+			<Border Height="2" />
+			<TextBlock Text="{Binding SelectedViewRangeCalcType.Description}"
+					   Style="{DynamicResource DetailTextStyleKey}"/>
+
+			<DockPanel Visibility="{Binding SelectedViewRangeCalcType.HasCombinedSettings, Converter={StaticResource BooleanToVisibilityConverter}}"
+				  Margin="0,4,0,0">
+
+				<TextBlock Text="分⁠岐⁠点⁠係⁠数设置" />
+
+				<!--<Border Width="10" />
+				<RadioButton Content="List All">
+				</RadioButton>-->
+				<Border Width="10" />
+				<RadioButton Content="手动指定"
+							 DockPanel.Dock="Top">
+				</RadioButton>
 
 				<metro:PromptTextBox Prompt="例: 1"
-									 Width="60">
+									 Width="60"
+									 VerticalAlignment="Center"
+									 Margin="0,5,0,0">
 					<metro:PromptTextBox.Text>
 						<Binding Source="{x:Static ms:KanColleSettings.ViewRangeCalcNodeFactor}"
 								 Path="Value"
 								 UpdateSourceTrigger="PropertyChanged">
 							<Binding.ValidationRules>
 								<metro:Int32Rule Min="0"
-												 Max="5" />
+												 Max="4" />
 							</Binding.ValidationRules>
 						</Binding>
 					</metro:PromptTextBox.Text>
 				</metro:PromptTextBox>
-				<TextBlock Grid.Column="2"
-						   Style="{DynamicResource DetailTextStyleKey}">
-					<Run Text="※分岐点係数：2-5ボス前(H,Iマス)＝1、6-2(F,Hマス)・6-3ボス前(Hマス)＝3、3-5(Gマス)・6-1(E、Fマス)＝4。" />
+
+				<TextBlock Style="{DynamicResource DetailTextStyleKey}"
+						   Margin="10,4,0,0" >
+					<Run Text="※2-5 (G, I, J マス) ＝ 1、4-5 (K, Q マス)・5-2 (F, L マス)・5-4 ボス前 (L, M マス)・5-5 ボス前 (O, P マス) = 2、1-6 (M マス)・6-2 (E, H, I マス)・6-3 ボス前 (H マス)・6-5 ボス前 (G, J マス) ＝ 3、3-5 ボス前 (G, H マス)・6-1 (G, H マス)・7-2 ボス前 (E, I マス) ＝ 4。" />
 				</TextBlock>
-			</Grid>
-
-			<TextBlock Text="{Binding SelectedViewRangeCalcType.Description}"
-					   Style="{DynamicResource DetailTextStyleKey}"/>
-
+			</DockPanel>
 
 			<TextBlock Text="{Binding Resources.Settings_Operation_ViewRange_CombinedEnable, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 					   Margin="0,12,0,5"
@@ -150,7 +154,10 @@
 						  Margin="0,0,20,0"
 						  IsChecked="{Binding Source={x:Static ms:KanColleSettings.DisplayAAInStatusBar},Path=Value}" />
 				<CheckBox Content="{Binding Resources.Fleets_ASW, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+						  Margin="0,0,20,0"
 						  IsChecked="{Binding Source={x:Static ms:KanColleSettings.DisplayASWInStatusBar},Path=Value}" />
+				<CheckBox Content="索敵"						  
+						  IsChecked="{Binding Source={x:Static ms:KanColleSettings.DisplayLoSInStatusBar},Path=Value}" />
 			</StackPanel>
 		</StackPanel>
 		

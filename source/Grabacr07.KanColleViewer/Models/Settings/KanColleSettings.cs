@@ -120,6 +120,9 @@ namespace Grabacr07.KanColleViewer.Models.Settings
 		public static SerializableProperty<bool> DisplayASWInStatusBar { get; }
 			= new SerializableProperty<bool>(GetKey(), Providers.Roaming, true);
 
+		public static SerializableProperty<bool> DisplayLoSInStatusBar { get; }
+			= new SerializableProperty<bool>(GetKey(), Providers.Roaming, false);
+
 		#region instance members
 
 		public event PropertyChangedEventHandler PropertyChanged;

@@ -33,6 +33,12 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Fleets
 
 		public string IndicatedASW => (this.Source.TotalASW - this.Source.ImprovementASW).ToString("###0");
 
+		public string TotalLoS => this.Source.TotalLoS.ToString("###0");
+
+		public string ImprovementLoS => this.Source.ImprovementLoS.ToString("###0");
+
+		public string IndicatedLoS => (this.Source.TotalLoS - this.Source.ImprovementLoS).ToString("###0");
+
 		public string MinAirSuperiorityPotential => this.Source.MinAirSuperiorityPotential.ToString("##0");
 
 		public string MaxAirSuperiorityPotential => this.Source.MaxAirSuperiorityPotential.ToString("##0");
