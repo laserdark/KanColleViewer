@@ -22,7 +22,8 @@
 				   xmlns:contentsVm="clr-namespace:Grabacr07.KanColleViewer.ViewModels.Contents"
 				   xmlns:fleetsVm="clr-namespace:Grabacr07.KanColleViewer.ViewModels.Contents.Fleets"
 				   xmlns:settings="clr-namespace:Grabacr07.KanColleViewer.Views.Settings"
-				   xmlns:wrapper="clr-namespace:Grabacr07.KanColleWrapper.Models;assembly=KanColleWrapper"
+				   xmlns:wrapper="clr-namespace:Grabacr07.KanColleWrapper;assembly=KanColleWrapper"
+				   xmlns:wrapperModels="clr-namespace:Grabacr07.KanColleWrapper.Models;assembly=KanColleWrapper"
 				   mc:Ignorable="d"
 				   d:DataContext="{d:DesignInstance viewModels:FleetWindowViewModel}"
 				   Title="{Binding Title}"
@@ -57,7 +58,7 @@
 			<kcvv:HasFlagConverter x:Key="HasFlagConverter" />
 
 			<DataTemplate x:Key="ShipLineViewKey"
-						  DataType="{x:Type wrapper:Ship}">
+						  DataType="{x:Type wrapperModels:Ship}">
 				<Border BorderThickness="0,0,0,1"
 						BorderBrush="{DynamicResource BorderBrushKey}"
 						VerticalAlignment="Top">
@@ -588,6 +589,7 @@
 							<RowDefinition Height="Auto" />
 							<RowDefinition Height="Auto" />
 							<RowDefinition Height="Auto" />
+							<RowDefinition Height="4" />
 							<RowDefinition Height="Auto" />
 							<RowDefinition Height="Auto" />
 							<RowDefinition Height="Auto" />
@@ -738,7 +740,7 @@
 								 Style="{DynamicResource DefaultTextElementStyleKey}" />
 						</TextBlock>
 
-						<TextBlock Grid.Row="7"
+						<TextBlock Grid.Row="8"
 								   Grid.Column="0"
 								   Style="{DynamicResource DefaultTextStyleKey}"
 								   HorizontalAlignment="Right"
@@ -747,14 +749,14 @@
 							<Run Text="{Binding Resources.Fleets_ViewRange, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 							<Run Text=":" />
 						</TextBlock>
-						<TextBlock Grid.Row="7"
+						<TextBlock Grid.Row="8"
 								   Grid.Column="1"
 								   Text="{Binding State.ViewRange}"
 								   Style="{DynamicResource EmphaticTextStyleKey}"
 								   VerticalAlignment="Bottom"
 								   Margin="4,2" />
 
-						<TextBlock Grid.Row="8"
+						<TextBlock Grid.Row="9"
 								   Grid.Column="0"
 								   Style="{DynamicResource DefaultTextStyleKey}"
 								   HorizontalAlignment="Right"
@@ -765,21 +767,25 @@
 								 Style="{DynamicResource DetailTextElementStyleKey}" />
 							<Run Text=":" />
 						</TextBlock>
-						<TextBlock Grid.Row="8"
+						<TextBlock Grid.Row="9"
 								   Grid.Column="1"
-								   Style="{DynamicResource EmphaticTextStyleKey}"
+								   Style="{DynamicResource DefaultTextStyleKey}"
 								   VerticalAlignment="Bottom"
-								   Margin="4,2">
-							<FrameworkElement.ToolTip>
-								<TextBlock Text="艦戦のみで、内部熟練度を最小として計算しています。"
-										   Style="{DynamicResource DefaultTextStyleKey}" />
-							</FrameworkElement.ToolTip>
-							<Run Text="{Binding State.MinAirSuperiorityPotential, Mode=OneWay}" />
-							<Run Text="※"
-								 Style="{DynamicResource DefaultTextElementStyleKey}" />
+								   Margin="4,2">							
+							<Run Text="{Binding State.MinAirSuperiorityPotential, Mode=OneWay}"
+								 Style="{DynamicResource EmphaticTextElementStyleKey}" />
+							<TextBlock Visibility="{Binding Homeport.Organization.Combined, Source={x:Static wrapper:KanColleClient.Current}, Converter={StaticResource BooleanToVisibilityConverter}}">
+								<FrameworkElement.ToolTip>
+									<TextBlock Text="対敵連合艦隊との戦闘では、第2艦隊が航空戦に参加する"
+											   Style="{DynamicResource DefaultTextStyleKey}" />
+								</FrameworkElement.ToolTip>
+								<Run Text="+" />
+								<Run Text="{Binding State.SecondFleetMinAirSuperiorityPotential, Mode=OneWay}" />
+								<Run Text="※" />
+							</TextBlock>
 						</TextBlock>
 
-						<TextBlock Grid.Row="9"
+						<TextBlock Grid.Row="10"
 								   Grid.Column="0"
 								   Style="{DynamicResource DefaultTextStyleKey}"
 								   HorizontalAlignment="Right"
@@ -790,21 +796,25 @@
 								 Style="{DynamicResource DetailTextElementStyleKey}" />
 							<Run Text=":" />
 						</TextBlock>
-						<TextBlock Grid.Row="9"
+						<TextBlock Grid.Row="10"
 								   Grid.Column="1"
-								   Style="{DynamicResource EmphaticTextStyleKey}"
+								   Style="{DynamicResource DefaultTextStyleKey}"
 								   VerticalAlignment="Bottom"
-								   Margin="4,2">
-							<FrameworkElement.ToolTip>
-								<TextBlock Text="全艦載機で、内部熟練度を最大として計算しています。"
-										   Style="{DynamicResource DefaultTextStyleKey}" />
-							</FrameworkElement.ToolTip>
-							<Run Text="{Binding State.MaxAirSuperiorityPotential, Mode=OneWay}" />
-							<Run Text="※"
-								 Style="{DynamicResource DefaultTextElementStyleKey}" />
+								   Margin="4,2">							
+							<Run Text="{Binding State.MaxAirSuperiorityPotential, Mode=OneWay}"
+								 Style="{DynamicResource EmphaticTextElementStyleKey}" />
+							<TextBlock Visibility="{Binding Homeport.Organization.Combined, Source={x:Static wrapper:KanColleClient.Current}, Converter={StaticResource BooleanToVisibilityConverter}}">
+								<FrameworkElement.ToolTip>
+									<TextBlock Text="対敵連合艦隊との戦闘では、第2艦隊が航空戦に参加する"
+											   Style="{DynamicResource DefaultTextStyleKey}" />
+								</FrameworkElement.ToolTip>
+								<Run Text="+" />
+								<Run Text="{Binding State.SecondFleetMaxAirSuperiorityPotential, Mode=OneWay}" />
+								<Run Text="※" />
+							</TextBlock>
 						</TextBlock>
 
-						<TextBlock Grid.Row="11"
+						<TextBlock Grid.Row="12"
 								   Grid.Column="0"
 								   Grid.ColumnSpan="2"
 								   Text="{Binding State.Speed}"
