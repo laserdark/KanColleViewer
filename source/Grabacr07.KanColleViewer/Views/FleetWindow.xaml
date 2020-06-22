@@ -1120,8 +1120,14 @@
 													<Condition Binding="{Binding Source.State.Situation, Converter={StaticResource HasFlagConverter}, ConverterParameter=FlagshipIsRepairShip}"
 															   Value="True" />
 												</MultiDataTrigger.Conditions>
-												<Setter Property="Text"
-														Value="{Binding Resources.FleetWindow_Situation_FlagshipIsRepairShip, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+												<Setter Property="Text">
+													<Setter.Value>
+														<MultiBinding StringFormat="{}{0}{1}">
+															<Binding Path="Resources.FleetWindow_Situation_FlagshipIsRepairShip" Source="{x:Static models:ResourceService.Current}" Mode="OneWay" />
+															<Binding Path="State.Homeport.RepairShip.RepairingDuration" />
+														</MultiBinding>
+													</Setter.Value>
+												</Setter>
 												<Setter Property="Foreground"
 														Value="{DynamicResource ActiveForegroundBrushKey}" />
 												<Setter Property="Background"
