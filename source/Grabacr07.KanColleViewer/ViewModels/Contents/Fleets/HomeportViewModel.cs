@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,11 +16,16 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Fleets
 
 		public ConditionViewModel Condition { get; }
 
+		public RepairShipDurationViewModel RepairShip { get; }
+
 		public HomeportViewModel(FleetState state)
 			: base(state)
 		{
 			this.Condition = new ConditionViewModel(state.Condition);
 			this.CompositeDisposable.Add(this.Condition);
+
+			this.RepairShip = new RepairShipDurationViewModel(state.RepairingDuration);
+			this.CompositeDisposable.Add(this.RepairShip);
 		}
 	}
 }

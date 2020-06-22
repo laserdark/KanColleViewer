@@ -19,6 +19,8 @@ namespace Grabacr07.KanColleWrapper.Models
 		/// </summary>
 		public FleetCondition Condition { get; }
 
+		public RepairShipRepairingDuration RepairingDuration { get; }
+
 		#region AverageLevel 変更通知プロパティ
 
 		private double _AverageLevel;
@@ -366,6 +368,8 @@ namespace Grabacr07.KanColleWrapper.Models
 
 			this.Condition = new FleetCondition();
 			this.CompositeDisposable.Add(this.Condition);
+			this.RepairingDuration = new RepairShipRepairingDuration();
+			this.CompositeDisposable.Add(this.RepairingDuration);
 			this.CompositeDisposable.Add(new PropertyChangedWeakEventListener(KanColleClient.Current.Settings)
 			{
 				{ nameof(IKanColleClientSettings.ViewRangeCalcType), (_, __) => this.Calculate() },
@@ -499,6 +503,7 @@ namespace Grabacr07.KanColleWrapper.Models
 			if (flagshipIsRepairShip)
 			{
 				state |= FleetSituation.FlagshipIsRepairShip;
+				this.RepairingDuration.Update(ships);
 				if (KanColleClient.Current.Settings.CheckFlagshipIsRepairShip) ready = false;
 			}
 
