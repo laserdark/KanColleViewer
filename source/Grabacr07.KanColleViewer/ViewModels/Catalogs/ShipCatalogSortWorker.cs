@@ -199,7 +199,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 				if (this._Current != value)
 				{
 					this._Current = value;
-					this.SafeUpdate((value == null) ? true : !value.DefaultIsDescending);
+					this.SafeUpdate(!value?.DefaultIsDescending ?? true);
 					this.Updated(this);
 					this.RaisePropertyChanged();
 				}

@@ -11,6 +11,7 @@ using CefSharp;
 using CefSharp.Wpf;
 using CefSharp.Wpf.Internals;
 using Grabacr07.KanColleViewer.Models;
+using Grabacr07.KanColleViewer.Models.Settings;
 using Grabacr07.KanColleViewer.Models.Cef;
 
 namespace Grabacr07.KanColleViewer.Views.Controls
@@ -48,7 +49,7 @@ namespace Grabacr07.KanColleViewer.Views.Controls
 		{		
 			var instance = (KanColleHost)d;
 			var newBrowser = (ChromiumWebBrowser)e.NewValue;
-			newBrowser.BrowserSettings.WindowlessFrameRate = 60;
+			if (GeneralSettings.IsHighFrameRate) newBrowser.BrowserSettings.WindowlessFrameRate = 60;
 			var oldBrowser = (ChromiumWebBrowser)e.OldValue;
 
 			if (oldBrowser != null)

@@ -276,9 +276,9 @@
 									<WrapPanel Grid.Column="2">
 										<RadioButton Content="{Binding Resources.ShipCatalogWindow_FilterSettings_AllShips, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 													 IsChecked="{Binding Both, Mode=TwoWay}" />
-										<RadioButton Content="Lv.2 以上"
+										<RadioButton Content="Lv. 2 以上"
 													 IsChecked="{Binding Level2OrMore, Mode=TwoWay}" />
-										<RadioButton Content="Lv.1"
+										<RadioButton Content="Lv. 1"
 													 IsChecked="{Binding Level1, Mode=TwoWay}" />
 									</WrapPanel>
 								</Grid>
@@ -691,8 +691,8 @@
 											<Run Text="{Binding Ship.Level, Mode=OneWay}"
 												 FontSize="12"
 												 Foreground="{DynamicResource ActiveForegroundBrushKey}" />
-											<Run Text="" />
-											<Run Text="{Binding Ship.ExpForNextLevel, StringFormat=Next:{0}, Mode=OneWay}" />
+											<Run Text="Next:" />
+											<Run Text="{Binding Ship.ExpForNextLevel, Mode=OneWay}" />
 										</TextBlock>
 									</DataTemplate>
 								</GridViewColumn.CellTemplate>

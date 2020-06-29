@@ -96,7 +96,9 @@
 					<TextBlock Grid.Column="2"
 							   Style="{DynamicResource DetailTextStyleKey}"
 							   Margin="5">
-						<Run Text="{Binding Resources.Common_DefaultValue, Source={x:Static models:ResourceService.Current}, Mode=OneWay, StringFormat='({0}:'}" />
+						<Run Text="(" />
+						<Run Text="{Binding Resources.Common_DefaultValue, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+						<Run Text=":" />
 						<Run Text="{Binding Source={x:Static settings:NetworkSettings+LocalProxy.Port}, Path=Default, Mode=OneWay}" />
 						<Run Text=")" />
 					</TextBlock>

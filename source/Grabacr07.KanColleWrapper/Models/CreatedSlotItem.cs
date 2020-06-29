@@ -13,26 +13,21 @@ namespace Grabacr07.KanColleWrapper.Models
 	{
 		public bool Succeed => this.RawData.api_create_flag == 1;
 
-		public SlotItemInfo SlotItemInfo { get; }
+		public List<SlotItemInfo> SlotItemInfos { get; }
 
 		public CreatedSlotItem(kcsapi_createitem rawData)
 			: base(rawData)
 		{
 			try
 			{
-				if (this.Succeed)
-				{
-					for (int i = 0; i < rawData.api_get_items.Length; i++)
-					{
-						this.SlotItemInfo = (rawData.api_get_items[i].api_slotitem_id != -1) ? KanColleClient.Current.Master.SlotItems[rawData.api_get_items[i].api_slotitem_id] : null;
-					}
-				}
-				else
-				{
-					this.SlotItemInfo = null;
-				}					
+				this.SlotItemInfos = this.Succeed
+					? new List<SlotItemInfo>(
+						rawData.api_get_items
+						.Where(x => x.api_slotitem_id != -1)
+						.Select(x => KanColleClient.Current.Master.SlotItems[x.api_slotitem_id]))
+					: null;
 
-				System.Diagnostics.Debug.WriteLine("createitem: {0} - {1}", this.Succeed, this.SlotItemInfo.Name);
+				//System.Diagnostics.Debug.WriteLine("createitem: {0} - {1}", this.Succeed, this.SlotItemInfos.Name);
 			}
 			catch (Exception ex)
 			{

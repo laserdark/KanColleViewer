@@ -22,7 +22,8 @@
 				   xmlns:contentsVm="clr-namespace:Grabacr07.KanColleViewer.ViewModels.Contents"
 				   xmlns:fleetsVm="clr-namespace:Grabacr07.KanColleViewer.ViewModels.Contents.Fleets"
 				   xmlns:settings="clr-namespace:Grabacr07.KanColleViewer.Views.Settings"
-				   xmlns:wrapper="clr-namespace:Grabacr07.KanColleWrapper.Models;assembly=KanColleWrapper"
+				   xmlns:wrapper="clr-namespace:Grabacr07.KanColleWrapper;assembly=KanColleWrapper"
+				   xmlns:wrapperModels="clr-namespace:Grabacr07.KanColleWrapper.Models;assembly=KanColleWrapper"
 				   mc:Ignorable="d"
 				   d:DataContext="{d:DesignInstance viewModels:FleetWindowViewModel}"
 				   Title="{Binding Title}"
@@ -57,7 +58,7 @@
 			<kcvv:HasFlagConverter x:Key="HasFlagConverter" />
 
 			<DataTemplate x:Key="ShipLineViewKey"
-						  DataType="{x:Type wrapper:Ship}">
+						  DataType="{x:Type wrapperModels:Ship}">
 				<Border BorderThickness="0,0,0,1"
 						BorderBrush="{DynamicResource BorderBrushKey}"
 						VerticalAlignment="Top">
@@ -220,7 +221,7 @@
 																   Value="True" />
 													</MultiDataTrigger.Conditions>
 													<Setter Property="Text"
-															Value="{Binding Resources.SlotItem_DamageControl, Source={x:Static models:ResourceService.Current}, Mode=OneWay, StringFormat='健在・{0}搭載'}" />
+															Value="{Binding Resources.SlotItem_DamageControl, Source={x:Static models:ResourceService.Current}, Mode=OneWay, StringFormat=健在・{0}搭載}" />
 												</MultiDataTrigger>
 												<MultiDataTrigger>
 													<MultiDataTrigger.Conditions>
@@ -240,7 +241,7 @@
 																   Value="True" />
 													</MultiDataTrigger.Conditions>
 													<Setter Property="Text"
-															Value="{Binding Resources.SlotItem_DamageControl, Source={x:Static models:ResourceService.Current}, Mode=OneWay, StringFormat='大破 ({0}使用可能)'}" />
+															Value="{Binding Resources.SlotItem_DamageControl, Source={x:Static models:ResourceService.Current}, Mode=OneWay, StringFormat=大破 ({0}使用可能)}" />
 													<Setter Property="Background"
 															Value="{DynamicResource FleetRepairingBrushKey}" />
 												</MultiDataTrigger>
@@ -587,6 +588,11 @@
 							<RowDefinition Height="Auto" />
 							<RowDefinition Height="Auto" />
 							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="4" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
 							<RowDefinition Height="4" />
 							<RowDefinition Height="Auto" />
 							<RowDefinition Height="Auto" />
@@ -600,7 +606,7 @@
 								   HorizontalAlignment="Right"
 								   VerticalAlignment="Bottom"
 								   Margin="1,2">
-							<Run Text="{Binding Resources.Fleets_Level, Source={x:Static models:ResourceService.Current}, Mode=OneWay, StringFormat='合計{0}'}" />
+							<Run Text="{Binding Resources.Fleets_Level, Source={x:Static models:ResourceService.Current}, Mode=OneWay, StringFormat=合計{0}}" />
 							<Run Text=":" />
 						</TextBlock>
 						<TextBlock Grid.Row="0"
@@ -616,7 +622,7 @@
 								   HorizontalAlignment="Right"
 								   VerticalAlignment="Bottom"
 								   Margin="1,2">
-							<Run Text="{Binding Resources.Fleets_Level, Source={x:Static models:ResourceService.Current}, Mode=OneWay, StringFormat='平均{0}'}" />
+							<Run Text="{Binding Resources.Fleets_Level, Source={x:Static models:ResourceService.Current}, Mode=OneWay, StringFormat=平均{0}}" />
 							<Run Text=":" />
 						</TextBlock>
 						<TextBlock Grid.Row="1"
@@ -625,24 +631,132 @@
 								   Style="{DynamicResource EmphaticTextStyleKey}"
 								   VerticalAlignment="Bottom"
 								   Margin="4,2" />
-
+						
 						<TextBlock Grid.Row="3"
 								   Grid.Column="0"
 								   Style="{DynamicResource DefaultTextStyleKey}"
 								   HorizontalAlignment="Right"
 								   VerticalAlignment="Bottom"
 								   Margin="1,2">
-							<Run Text="索敵値" />
+							<Run Text="{Binding Resources.Fleets_Firepower, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 							<Run Text=":" />
 						</TextBlock>
 						<TextBlock Grid.Row="3"
+								   Grid.Column="1"
+								   Style="{DynamicResource EmphaticTextStyleKey}"
+								   VerticalAlignment="Bottom"
+								   Margin="4,2">
+							<FrameworkElement.ToolTip>
+								<TextBlock Style="{DynamicResource DefaultTextStyleKey}">
+									<Run Text="表示値 + 改修補正値 :" />
+									<Run Text="{Binding State.IndicatedFirepower, Mode=OneWay}" />
+									<Run Text="+" />
+									<Run Text="{Binding State.ImprovementFirepower, Mode=OneWay}" />
+								</TextBlock>
+							</FrameworkElement.ToolTip>
+							<Run Text="{Binding State.TotalFirepower, Mode=OneWay}" />
+							<Run Text="※"
+								 Style="{DynamicResource DefaultTextElementStyleKey}" />
+						</TextBlock>
+
+						<TextBlock Grid.Row="4"
+								   Grid.Column="0"
+								   Style="{DynamicResource DefaultTextStyleKey}"
+								   HorizontalAlignment="Right"
+								   VerticalAlignment="Bottom"
+								   Margin="1,2">
+							<Run Text="{Binding Resources.Fleets_AA, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+							<Run Text=":" />
+						</TextBlock>
+						<TextBlock Grid.Row="4"
+								   Grid.Column="1"   
+								   Style="{DynamicResource EmphaticTextStyleKey}"
+								   VerticalAlignment="Bottom"
+								   Margin="4,2">
+							<FrameworkElement.ToolTip>
+								<TextBlock Style="{DynamicResource DefaultTextStyleKey}">
+									<Run Text="表示値 + 改修補正値 :" />
+									<Run Text="{Binding State.IndicatedAA, Mode=OneWay}" />
+									<Run Text="+" />
+									<Run Text="{Binding State.ImprovementAA, Mode=OneWay}" />
+								</TextBlock>
+							</FrameworkElement.ToolTip>
+							<Run Text="{Binding State.TotalAA, Mode=OneWay}" />
+							<Run Text="※"
+								 Style="{DynamicResource DefaultTextElementStyleKey}" />
+						</TextBlock>
+
+						<TextBlock Grid.Row="5"
+								   Grid.Column="0"
+								   Style="{DynamicResource DefaultTextStyleKey}"
+								   HorizontalAlignment="Right"
+								   VerticalAlignment="Bottom"
+								   Margin="1,2">
+							<Run Text="{Binding Resources.Fleets_ASW, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+							<Run Text=":" />
+						</TextBlock>
+						<TextBlock Grid.Row="5"
+								   Grid.Column="1"
+								   Style="{DynamicResource EmphaticTextStyleKey}"
+								   VerticalAlignment="Bottom"
+								   Margin="4,2">
+							<FrameworkElement.ToolTip>
+								<TextBlock Style="{DynamicResource DefaultTextStyleKey}">
+									<Run Text="表示値 + 改修補正値 :" />
+									<Run Text="{Binding State.IndicatedASW, Mode=OneWay}" />
+									<Run Text="+" />
+									<Run Text="{Binding State.ImprovementASW, Mode=OneWay}" />
+								</TextBlock>
+							</FrameworkElement.ToolTip>
+							<Run Text="{Binding State.TotalASW, Mode=OneWay}" />
+							<Run Text="※"
+								 Style="{DynamicResource DefaultTextElementStyleKey}" />
+						</TextBlock>
+
+						<TextBlock Grid.Row="6"
+								   Grid.Column="0"
+								   Style="{DynamicResource DefaultTextStyleKey}"
+								   HorizontalAlignment="Right"
+								   VerticalAlignment="Bottom"
+								   Margin="1,2">
+							<Run Text="索敵" />
+							<Run Text=":" />
+						</TextBlock>
+						<TextBlock Grid.Row="6"
+								   Grid.Column="1"
+								   Style="{DynamicResource EmphaticTextStyleKey}"
+								   VerticalAlignment="Bottom"
+								   Margin="4,2">
+							<FrameworkElement.ToolTip>
+								<TextBlock Style="{DynamicResource DefaultTextStyleKey}">
+									<Run Text="表示値 + 改修補正値 :" />
+									<Run Text="{Binding State.IndicatedLoS, Mode=OneWay}" />
+									<Run Text="+" />
+									<Run Text="{Binding State.ImprovementLoS, Mode=OneWay}" />
+								</TextBlock>
+							</FrameworkElement.ToolTip>
+							<Run Text="{Binding State.TotalLoS, Mode=OneWay}" />
+							<Run Text="※"
+								 Style="{DynamicResource DefaultTextElementStyleKey}" />
+						</TextBlock>
+
+						<TextBlock Grid.Row="8"
+								   Grid.Column="0"
+								   Style="{DynamicResource DefaultTextStyleKey}"
+								   HorizontalAlignment="Right"
+								   VerticalAlignment="Bottom"
+								   Margin="1,2">
+							<Run Text="{Binding Resources.Fleets_ViewRange, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+							<Run Text=":" />
+						</TextBlock>
+						<TextBlock Grid.Row="8"
 								   Grid.Column="1"
 								   Text="{Binding State.ViewRange}"
 								   Style="{DynamicResource EmphaticTextStyleKey}"
 								   VerticalAlignment="Bottom"
 								   Margin="4,2" />
 
-						<TextBlock Grid.Row="4"
+						<TextBlock Grid.Row="9"
 								   Grid.Column="0"
 								   Style="{DynamicResource DefaultTextStyleKey}"
 								   HorizontalAlignment="Right"
@@ -653,21 +767,25 @@
 								 Style="{DynamicResource DetailTextElementStyleKey}" />
 							<Run Text=":" />
 						</TextBlock>
-						<TextBlock Grid.Row="4"
+						<TextBlock Grid.Row="9"
 								   Grid.Column="1"
-								   Style="{DynamicResource EmphaticTextStyleKey}"
+								   Style="{DynamicResource DefaultTextStyleKey}"
 								   VerticalAlignment="Bottom"
-								   Margin="4,2">
-							<FrameworkElement.ToolTip>
-								<TextBlock Text="艦戦のみで、内部熟練度を最小として計算しています。"
-										   Style="{DynamicResource DefaultTextStyleKey}" />
-							</FrameworkElement.ToolTip>
-							<Run Text="{Binding State.MinAirSuperiorityPotential, Mode=OneWay}" />
-							<Run Text="※"
-								 Style="{DynamicResource DefaultTextElementStyleKey}" />
+								   Margin="4,2">							
+							<Run Text="{Binding State.MinAirSuperiorityPotential, Mode=OneWay}"
+								 Style="{DynamicResource EmphaticTextElementStyleKey}" />
+							<TextBlock Visibility="{Binding Homeport.Organization.Combined, Source={x:Static wrapper:KanColleClient.Current}, Converter={StaticResource BooleanToVisibilityConverter}}">
+								<FrameworkElement.ToolTip>
+									<TextBlock Text="対敵連合艦隊との戦闘では、第2艦隊が航空戦に参加する"
+											   Style="{DynamicResource DefaultTextStyleKey}" />
+								</FrameworkElement.ToolTip>
+								<Run Text="+" />
+								<Run Text="{Binding State.SecondFleetMinAirSuperiorityPotential, Mode=OneWay}" />
+								<Run Text="※" />
+							</TextBlock>
 						</TextBlock>
 
-						<TextBlock Grid.Row="5"
+						<TextBlock Grid.Row="10"
 								   Grid.Column="0"
 								   Style="{DynamicResource DefaultTextStyleKey}"
 								   HorizontalAlignment="Right"
@@ -678,21 +796,25 @@
 								 Style="{DynamicResource DetailTextElementStyleKey}" />
 							<Run Text=":" />
 						</TextBlock>
-						<TextBlock Grid.Row="5"
+						<TextBlock Grid.Row="10"
 								   Grid.Column="1"
-								   Style="{DynamicResource EmphaticTextStyleKey}"
+								   Style="{DynamicResource DefaultTextStyleKey}"
 								   VerticalAlignment="Bottom"
-								   Margin="4,2">
-							<FrameworkElement.ToolTip>
-								<TextBlock Text="全艦載機で、内部熟練度を最大として計算しています。"
-										   Style="{DynamicResource DefaultTextStyleKey}" />
-							</FrameworkElement.ToolTip>
-							<Run Text="{Binding State.MaxAirSuperiorityPotential, Mode=OneWay}" />
-							<Run Text="※"
-								 Style="{DynamicResource DefaultTextElementStyleKey}" />
+								   Margin="4,2">							
+							<Run Text="{Binding State.MaxAirSuperiorityPotential, Mode=OneWay}"
+								 Style="{DynamicResource EmphaticTextElementStyleKey}" />
+							<TextBlock Visibility="{Binding Homeport.Organization.Combined, Source={x:Static wrapper:KanColleClient.Current}, Converter={StaticResource BooleanToVisibilityConverter}}">
+								<FrameworkElement.ToolTip>
+									<TextBlock Text="対敵連合艦隊との戦闘では、第2艦隊が航空戦に参加する"
+											   Style="{DynamicResource DefaultTextStyleKey}" />
+								</FrameworkElement.ToolTip>
+								<Run Text="+" />
+								<Run Text="{Binding State.SecondFleetMaxAirSuperiorityPotential, Mode=OneWay}" />
+								<Run Text="※" />
+							</TextBlock>
 						</TextBlock>
 
-						<TextBlock Grid.Row="7"
+						<TextBlock Grid.Row="12"
 								   Grid.Column="0"
 								   Grid.ColumnSpan="2"
 								   Text="{Binding State.Speed}"
@@ -885,7 +1007,7 @@
 															   Value="True" />
 												</MultiDataTrigger.Conditions>
 												<Setter Property="Text"
-														Value="{Binding Resources.Fleets_Situation_HeavilyDamaged, Source={x:Static models:ResourceService.Current}, Mode=OneWay, StringFormat='{}{0}'}" />
+														Value="{Binding Resources.Fleets_Situation_HeavilyDamaged, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 												<Setter Property="Foreground"
 														Value="{DynamicResource ActiveForegroundBrushKey}" />
 												<Setter Property="Background"
@@ -897,7 +1019,7 @@
 															   Value="True" />
 												</MultiDataTrigger.Conditions>
 												<Setter Property="Text"
-														Value="{Binding Resources.Fleets_Situation_HeavilyDamaged, Source={x:Static models:ResourceService.Current}, Mode=OneWay, StringFormat='{}{0}!'}" />
+														Value="{Binding Resources.Fleets_Situation_HeavilyDamaged, Source={x:Static models:ResourceService.Current}, Mode=OneWay, StringFormat={}{0}！}" />
 												<Setter Property="Foreground"
 														Value="{DynamicResource ActiveForegroundBrushKey}" />
 											</MultiDataTrigger>
@@ -998,8 +1120,14 @@
 													<Condition Binding="{Binding Source.State.Situation, Converter={StaticResource HasFlagConverter}, ConverterParameter=FlagshipIsRepairShip}"
 															   Value="True" />
 												</MultiDataTrigger.Conditions>
-												<Setter Property="Text"
-														Value="{Binding Resources.FleetWindow_Situation_FlagshipIsRepairShip, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+												<Setter Property="Text">
+													<Setter.Value>
+														<MultiBinding StringFormat="{}{0}{1}">
+															<Binding Path="Resources.FleetWindow_Situation_FlagshipIsRepairShip" Source="{x:Static models:ResourceService.Current}" Mode="OneWay" />
+															<Binding Path="State.Homeport.RepairShip.RepairingDuration" />
+														</MultiBinding>
+													</Setter.Value>
+												</Setter>
 												<Setter Property="Foreground"
 														Value="{DynamicResource ActiveForegroundBrushKey}" />
 												<Setter Property="Background"

@@ -529,6 +529,15 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
+        ///   查找类似 対空 的本地化字符串。
+        /// </summary>
+        public static string Fleets_AA {
+            get {
+                return ResourceManager.GetString("Fleets_AA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 制空戦力 的本地化字符串。
         /// </summary>
         public static string Fleets_AirSuperiorityPotential {
@@ -576,9 +585,9 @@ namespace Grabacr07.KanColleViewer.Properties {
         /// <summary>
         ///   查找类似 火力 的本地化字符串。
         /// </summary>
-        public static string Fleets_Karyoku {
+        public static string Fleets_Firepower {
             get {
-                return ResourceManager.GetString("Fleets_Karyoku", resourceCulture);
+                return ResourceManager.GetString("Fleets_Firepower", resourceCulture);
             }
         }
         
@@ -1465,15 +1474,6 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   查找类似 ※反映にはアプリケーションの再起動が必要です。 的本地化字符串。
-        /// </summary>
-        public static string Settings_Proxy_Restart2Apply {
-            get {
-                return ResourceManager.GetString("Settings_Proxy_Restart2Apply", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   查找类似 プロキシ サーバーを指定する 的本地化字符串。
         /// </summary>
         public static string Settings_Proxy_SpecificProxy {
@@ -1524,6 +1524,15 @@ namespace Grabacr07.KanColleViewer.Properties {
         public static string Settings_Proxy_SystemProxy_Description {
             get {
                 return ResourceManager.GetString("Settings_Proxy_SystemProxy_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 ※反映にはアプリケーションの再起動が必要です。 的本地化字符串。
+        /// </summary>
+        public static string Settings_Restart2Apply {
+            get {
+                return ResourceManager.GetString("Settings_Restart2Apply", resourceCulture);
             }
         }
         

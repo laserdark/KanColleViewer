@@ -56,7 +56,8 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 		public void Update(CreatedSlotItem item)
 		{
 			this.Succeed = item.Succeed;
-			this.Name = item.Succeed ? item.SlotItemInfo.Name : "-----";
+			this.Name = !item.Succeed ? "-----"
+				: string.Join(Environment.NewLine, item.SlotItemInfos.Select(x => x.Name).ToArray());
 		}
 	}
 }

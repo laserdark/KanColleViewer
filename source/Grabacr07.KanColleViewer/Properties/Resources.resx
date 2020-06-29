@@ -221,9 +221,11 @@
   </data>
   <data name="Homeport_InstantBuild" xml:space="preserve">
     <value>高速建造材:</value>
+    <comment>NoLongerExist</comment>
   </data>
   <data name="Homeport_InstantRepair" xml:space="preserve">
     <value>高速修復材:</value>
+    <comment>NoLongerExist</comment>
   </data>
   <data name="Homeport_NoOfEquipment" xml:space="preserve">
     <value>保有装備:</value>
@@ -480,7 +482,7 @@
   <data name="Fleets_ASW" xml:space="preserve">
     <value>対潜</value>
   </data>
-  <data name="Fleets_Karyoku" xml:space="preserve">
+  <data name="Fleets_Firepower" xml:space="preserve">
     <value>火力</value>
   </data>
   <data name="Settings_Plugins" xml:space="preserve">
@@ -586,7 +588,7 @@
   <data name="Settings_Proxy_SystemProxy_Description" xml:space="preserve">
     <value>「インターネット オプション」の設定を用いて通信を行います。</value>
   </data>
-  <data name="Settings_Proxy_Restart2Apply" xml:space="preserve">
+  <data name="Settings_Restart2Apply" xml:space="preserve">
     <value>※反映にはアプリケーションの再起動が必要です。</value>
   </data>
   <data name="Button_Retry" xml:space="preserve">
@@ -772,5 +774,8 @@
   <data name="StartContent_ClearCacheButtonMessage" xml:space="preserve">
     <value></value>
     <comment>NoLongerExist</comment>
+  </data>
+  <data name="Fleets_AA" xml:space="preserve">
+    <value>対空</value>
   </data>
 </root>

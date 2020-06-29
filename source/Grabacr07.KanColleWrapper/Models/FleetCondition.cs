@@ -83,21 +83,25 @@ namespace Grabacr07.KanColleWrapper.Models
 
 			var isSubset = false;
 			if (this.ships != null)
-			{
-				if (s.All(x => this.ships.Any(y => x.Id == y.Id)))
-					isSubset = true;
+			{				
+				isSubset = s.All(x => this.ships.Any(y => x.Id == y.Id));
 			}
 
-			var condTmp = this.ships == null ? 0 : this.ships.Min(x => x.Condition);
+			var condTmp = this.ships?.Min(x => x?.Condition) ?? 0;
 			var condition = s.Min(x => x.Condition);
 			if ((condition > this.minCondition) && (isSubset || (condition == condTmp)))
 			{
 				var rejuvnate = GetRejuvnate(condition);
 
-				if (this.RejuvenateTime > rejuvnate)
+				if (this.RejuvenateTime <= rejuvnate)
+				{
+					if (this.RejuvenateTime <= DateTimeOffset.Now)
+						this.RejuvenateTime = null;
+				}
+				else
 					this.RejuvenateTime = rejuvnate <= DateTimeOffset.Now
-					? (DateTimeOffset?)null
-					: rejuvnate;
+						? (DateTimeOffset?)null
+						: rejuvnate;
 			}
 			else if (!((condition == this.minCondition) && isSubset))
 			{

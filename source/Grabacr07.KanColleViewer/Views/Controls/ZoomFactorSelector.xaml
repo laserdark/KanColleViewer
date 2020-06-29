@@ -1,4 +1,4 @@
-﻿<UserControl x:Name="ZoomController"
+<UserControl x:Name="ZoomController"
 			 x:FieldModifier="private"
 			 x:Class="Grabacr07.KanColleViewer.Views.Controls.ZoomFactorSelector"
 			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -106,7 +106,7 @@
 																	 Foreground="{DynamicResource ActiveForegroundBrushKey}" />
 																<Run FontSize="12">
 																	<Run.Text>
-																		<MultiBinding StringFormat="  ({0:F0} x {1:F0})">
+																		<MultiBinding StringFormat=" ({0:F0} x {1:F0})">
 																			<Binding Path="ScreenSize.Width" />
 																			<Binding Path="ScreenSize.Height" />
 																		</MultiBinding>
