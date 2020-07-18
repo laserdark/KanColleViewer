@@ -83,7 +83,8 @@
 				</RadioButton>-->
 				<Border Width="10" />
 				<RadioButton Content="手动指定"
-							 DockPanel.Dock="Top">
+							 DockPanel.Dock="Top"
+							 IsChecked="{x:Null}">
 				</RadioButton>
 
 				<metro:PromptTextBox Prompt="例: 1"
