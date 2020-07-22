@@ -161,11 +161,10 @@
 									</TextBlock>
 									<TextBlock Grid.Column="3"
 											   Grid.Row="1"
-											   Margin="10,0,10,-1">
-										<Run Text="Next:"
-											 FontSize="9" />
-										<Run Text="{Binding Ship.ExpForNextLevel, Mode=OneWay}"
-											 FontSize="9" />
+											   Margin="10,0,10,-1"
+											   FontSize="9">
+										<Run Text="Next:" />
+										<Run Text="{Binding Ship.ExpForNextLevel, Mode=OneWay}" />
 										<!--<Run Text="&#x9;" />-->
 									</TextBlock>
 

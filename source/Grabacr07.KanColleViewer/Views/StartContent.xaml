@@ -169,11 +169,11 @@
 								 FontSize="16" />
 						</TextBlock>
 
-						<TextBlock Margin="0,8,0,0">
-							<Run Text="{Binding Source={x:Static models:ProductInfo.VersionString}, StringFormat=Version {0}, Mode=OneWay}"
-								 FontFamily="Segoe UI Light"
-								 FontSize="20"
-								 Foreground="{DynamicResource ActiveForegroundBrushKey}" />
+						<TextBlock Margin="0,8,0,0"
+								   FontFamily="Segoe UI Light"
+								   FontSize="20"
+								   Foreground="{DynamicResource ActiveForegroundBrushKey}">
+							<Run Text="{Binding Source={x:Static models:ProductInfo.VersionString}, StringFormat=Version {0}, Mode=OneWay}" />
 						</TextBlock>
 
 						<Rectangle Height=".99"
