@@ -294,13 +294,12 @@
 									  Height="20"
 									  Margin="0,5,3,5" />
 								<TextBlock DockPanel.Dock="Top"
-										   Style="{DynamicResource DefaultTextStyleKey}">
+										   Style="{DynamicResource DefaultTextStyleKey}"
+										   FontSize="10">
 									<Run Text="{Binding Fuel.Current, Mode=OneWay}"
 										 FontSize="14" />
-									<Run Text="/"
-										 FontSize="10" />
-									<Run Text="{Binding Fuel.Maximum, Mode=OneWay}"
-										 FontSize="10" />
+									<Run Text="/" />
+									<Run Text="{Binding Fuel.Maximum, Mode=OneWay}" />
 								</TextBlock>
 								<kcvc:ColorIndicator DockPanel.Dock="Top"
 													 LimitedValue="{Binding Fuel, Mode=OneWay}"
@@ -322,13 +321,12 @@
 									  Height="20"
 									  Margin="0,5,3,5" />
 								<TextBlock DockPanel.Dock="Top"
-										   Style="{DynamicResource DefaultTextStyleKey}">
+										   Style="{DynamicResource DefaultTextStyleKey}"
+										   FontSize="10">
 									<Run Text="{Binding Bull.Current, Mode=OneWay}"
 										 FontSize="14" />
-									<Run Text="/"
-										 FontSize="10" />
-									<Run Text="{Binding Bull.Maximum, Mode=OneWay}"
-										 FontSize="10" />
+									<Run Text="/" />
+									<Run Text="{Binding Bull.Maximum, Mode=OneWay}" />
 								</TextBlock>
 								<kcvc:ColorIndicator DockPanel.Dock="Top"
 													 LimitedValue="{Binding Bull, Mode=OneWay}"

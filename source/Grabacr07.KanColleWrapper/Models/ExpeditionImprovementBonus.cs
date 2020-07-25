@@ -71,7 +71,7 @@ namespace Grabacr07.KanColleWrapper.Models
 						return Math.Sqrt(slotItem.Level);
 
 					case SlotItemType.副砲:
-						return 0.15 * Math.Sqrt(slotItem.Level);
+						return 0.15 * slotItem.Level;
 
 					default:
 						return .0;
@@ -89,7 +89,7 @@ namespace Grabacr07.KanColleWrapper.Models
 						return Math.Sqrt(slotItem.Level);
 
 					case SlotItemIconType.HighAngleGun:
-						return 0.3 * Math.Sqrt(slotItem.Level);
+						return 0.3 * slotItem.Level;
 
 					default:
 						return .0;

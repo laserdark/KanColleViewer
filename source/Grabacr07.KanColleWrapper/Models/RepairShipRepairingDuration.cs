@@ -42,19 +42,31 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		internal void Update(Ship[] s)
 		{
-			var isOnlyEquipChange = false;
-			if (this.ships != null) isOnlyEquipChange = Enumerable.SequenceEqual(s.Select(x => x.Id), this.ships.Select(y => y.Id));
+			var isOnlyEquipChanged = false;
+			if (this.ships != null) isOnlyEquipChanged = Enumerable.SequenceEqual(s.Select(x => x.Id), this.ships.Select(y => y.Id));
 			this.ships = s;
-			if (isOnlyEquipChange) return;
-
-			var n = Math.Min(2 + s[0].EquippedItems.Count(x => x.Item.Info.EquipType.Id == 31), s.Length);
-			var isRepairing = s.Take(n).Any(x =>
+			if (isOnlyEquipChanged)
 			{
-				var percentage = x.HP.Maximum == 0 ? 0.0 : x.HP.Current / (double)x.HP.Maximum;
-				return (0.5 < percentage) && (percentage < 1.0);
-			});
+				if (this.StartTime.HasValue)
+				{
+					if (DateTimeOffset.Now.Subtract(this.StartTime.Value) >= TimeSpan.FromMinutes(20))
+					{
+						this.StartTime = DateTimeOffset.Now;
+					}
+				}				
+				return;
+			}
 
-			if (isRepairing)
+			var isRepairing = s.Take(Math.Min(2 + s[0].EquippedItems.Count(x => x.Item.Info.EquipType.Id == 31),
+											  s.Length))
+							   .Any(x =>
+							   {
+								   var percentage = x.HP.Maximum == 0 ? 0.0 : x.HP.Current / (double)x.HP.Maximum;
+								   return (0.5 < percentage) && (percentage < 1.0);
+							   });
+			var isEnabled = (s[0].HP.Current / (double)s[0].HP.Maximum) > 0.5;
+
+			if (isRepairing && isEnabled)
 			{
 				this.StartTime = DateTimeOffset.Now;
 			}
