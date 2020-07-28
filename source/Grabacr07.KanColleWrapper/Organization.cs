@@ -306,13 +306,12 @@ namespace Grabacr07.KanColleWrapper
 			{
 				var ship = this.Ships[int.Parse(data.Request["api_id"])];
 				if (ship == null) return;
-
-				ship.RawData.api_slot = data.Data.api_slot;
-				ship.UpdateSlots();
+								
+				ship.Update(data.Data.api_ship_data);
 
 				var fleet = this.Fleets.Values.FirstOrDefault(x => x.Ships.Any(y => y.Id == ship.Id));
 				if (fleet == null) return;
-
+				
 				fleet.State.Calculate();
 			}
 			catch (Exception ex)
@@ -364,9 +363,12 @@ namespace Grabacr07.KanColleWrapper
 
 				// (改修に使った艦娘のこと item って呼ぶのどうなの…)
 
+				var slotDest = Convert.ToBoolean(int.Parse(svd.Request["api_slot_dest_flag"]));
+
 				foreach (var x in items)
 				{
-					this.homeport.Itemyard.RemoveFromShip(x);
+					if (slotDest) this.homeport.Itemyard.RemoveFromShip(x);
+						
 					this.Ships.Remove(x);
 				}
 
@@ -387,6 +389,8 @@ namespace Grabacr07.KanColleWrapper
 		{
 			this.Ships[source.api_ship_data.api_unset_ship.api_id]?.Update(source.api_ship_data.api_unset_ship);
 			this.Ships[source.api_ship_data.api_set_ship.api_id]?.Update(source.api_ship_data.api_set_ship);
+			
+			this.GetFleet(source.api_ship_data.api_set_ship.api_id)?.State.Calculate();
 		}
 
 		#endregion
@@ -409,10 +413,12 @@ namespace Grabacr07.KanColleWrapper
 					.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries)
 					.Select(x => int.Parse(x))
 					.Select(x => this.Ships[x]);
-                    
-				foreach(var ship in ships)
+
+				var slotDest = Convert.ToBoolean(int.Parse(svd.Request["api_slot_dest_flag"]));
+
+				foreach (var ship in ships)
 				{
-					this.homeport.Itemyard.RemoveFromShip(ship);
+					if (slotDest) this.homeport.Itemyard.RemoveFromShip(ship);			
 
 					this.Ships.Remove(ship);
 				}

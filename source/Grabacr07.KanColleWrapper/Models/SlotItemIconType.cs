@@ -36,29 +36,29 @@ namespace Grabacr07.KanColleWrapper.Models
 		Torpedo = 5,
 
 		/// <summary>
-		/// 艦戦。
+		/// 艦上戦闘機。
 		/// </summary>
 		Fighter = 6,
 
 		/// <summary>
-		/// 艦爆。
+		/// 艦上爆撃機。
 		/// </summary>
 		DiveBomber = 7,
 
 		/// <summary>
-		/// 艦攻。
+		/// 艦上攻撃機。
 		/// </summary>
 		TorpedoBomber = 8,
 
 		/// <summary>
-		/// 偵察機。
+		/// 艦上偵察機。
 		/// </summary>
 		ReconPlane = 9,
 
 		/// <summary>
-		/// 水上爆撃機, 水上偵察機。
+		/// 水上機。
 		/// </summary>
-		ReconSeaplane = 10,
+		Seaplane = 10,
 
 		/// <summary>
 		/// 電探。
@@ -66,22 +66,22 @@ namespace Grabacr07.KanColleWrapper.Models
 		Rader = 11,
 
 		/// <summary>
-		/// 三式弾。
+		/// 対空強化弾。
 		/// </summary>
 		AAShell = 12,
 
 		/// <summary>
-		/// 徹甲弾。
+		/// 対艦強化弾。
 		/// </summary>
 		APShell = 13,
 
 		/// <summary>
-		/// ダメコン。
+		/// 応急修理要員。
 		/// </summary>
 		DamageControl = 14,
 
 		/// <summary>
-		/// 機銃。
+		/// 対空機銃。
 		/// </summary>
 		AAGun = 15,
 
@@ -91,14 +91,14 @@ namespace Grabacr07.KanColleWrapper.Models
 		HighAngleGun = 16,
 
 		/// <summary>
-		/// 爆雷投射機。
+		/// 爆雷。
 		/// </summary>
-		ASW = 17,
+		DepthCharge = 17,
 
 		/// <summary>
 		/// ソナー。
 		/// </summary>
-		Soner = 18,
+		Sonar = 18,
 
 		/// <summary>
 		/// 機関部強化。
@@ -116,12 +116,12 @@ namespace Grabacr07.KanColleWrapper.Models
 		Autogyro = 21,
 
 		/// <summary>
-		/// 指揮連絡機。
+		/// 対潜哨戒機。
 		/// </summary>
-		ArtillerySpotter = 22,
+		AntiSubmarinePatrol = 22,
 
 		/// <summary>
-		/// 増設バルジ。
+		/// 追加装甲。
 		/// </summary>
 		AntiTorpedoBulge = 23,
 
@@ -131,12 +131,12 @@ namespace Grabacr07.KanColleWrapper.Models
 		Searchlight = 24,
 
 		/// <summary>
-		/// ドラム缶。
+		/// 簡易輸送部材。
 		/// </summary>
 		DrumCanister = 25,
 
 		/// <summary>
-		/// 施設。
+		/// 艦艇修理施設。
 		/// </summary>
 		Facility = 26,
 
@@ -156,14 +156,14 @@ namespace Grabacr07.KanColleWrapper.Models
 		MaintenancePersonnel = 29,
 
 		/// <summary>
-		/// 高射砲。
+		/// 高射装置。
 		/// </summary>
 		AntiAircraftFireDirector = 30,
 
 		/// <summary>
-		/// ロケットランチャー。
+		/// 対地装備。
 		/// </summary>
-		RocketLauncher = 31,
+		RocketArtillery = 31,
 
 		/// <summary>
 		/// 水上艦要員。
@@ -181,14 +181,14 @@ namespace Grabacr07.KanColleWrapper.Models
 		CombatRations = 34,
 
 		/// <summary>
-		/// 洋上補給。
+		/// 補給物資。
 		/// </summary>
 		OffshoreResupply = 35,
 
 		/// <summary>
-		/// 内火艇。
+		/// 特型内火艇。
 		/// </summary>
-		AmphibiousLandingCraft = 36,
+		AmphibiousVehicle = 36,
 
 		/// <summary>
 		/// 陸上攻撃機。
@@ -201,12 +201,12 @@ namespace Grabacr07.KanColleWrapper.Models
 		InterceptorFighter = 38,
 
 		/// <summary>
-		/// 噴式戦闘爆撃機。
+		/// 噴式戦闘爆撃機(噴式景雲改)。
 		/// </summary>
 		JetPowerededBomber1 = 39,
 
 		/// <summary>
-		/// 噴式戦闘爆撃機。
+		/// 噴式戦闘爆撃機(橘花改)。
 		/// </summary>
 		JetPowerededBomber2 = 40,
 
@@ -241,7 +241,7 @@ namespace Grabacr07.KanColleWrapper.Models
 		NightAttacker = 46,
 
 		/// <summary>
-		/// 陸上対潜機。
+		/// 陸上対潜哨戒機。
 		/// </summary>
 		LandBasedAntiSubmarineAttacker = 47,
 	}

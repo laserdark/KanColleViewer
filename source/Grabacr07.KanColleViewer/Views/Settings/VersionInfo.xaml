@@ -43,16 +43,15 @@
 					   FontFamily="Segoe UI Light"
 					   FontSize="16"
 					   Margin="0,-9,0,0" />
-			<TextBlock Margin="-1,0,0,-4">
+			<TextBlock Margin="-1,0,0,-4"
+					   FontSize="20"
+					   Foreground="{DynamicResource ActiveForegroundBrushKey}">
 				<Run Text="{Binding Source={x:Static models:ProductInfo.Title}, Mode=OneWay}"
-					 FontFamily="Yu Gothic Light"
-					 FontSize="20"
-					 Foreground="{DynamicResource ActiveForegroundBrushKey}" />
-				<Run Text="  " />
+					 FontFamily="Yu Gothic Light" />
+				<Run Text="  "
+					 FontSize="12" />
 				<Run Text="{Binding Source={x:Static models:ProductInfo.VersionString}, StringFormat=Version {0}, Mode=OneWay}"
-					 FontFamily="Segoe UI Light"
-					 FontSize="20"
-					 Foreground="{DynamicResource ActiveForegroundBrushKey}" />
+					 FontFamily="Segoe UI Light" />
 			</TextBlock>
 
 			<Rectangle Height=".99"

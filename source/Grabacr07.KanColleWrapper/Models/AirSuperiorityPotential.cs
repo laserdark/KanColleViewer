@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,9 +7,9 @@ namespace Grabacr07.KanColleWrapper.Models
 	[Flags]
 	public enum AirSuperiorityCalculationOptions
 	{
-		Default = Maximum,
+		Default = Minimum,
 
-		Minimum = InternalProficiencyMinValue | Fighter,
+		Minimum = InternalProficiencyMinValue | Fighter | Attacker | SeaplaneBomber | JetFightingBomber,
 		Maximum = InternalProficiencyMaxValue | Fighter | Attacker | SeaplaneBomber | JetFightingBomber,
 
 		/// <summary>艦上戦闘機、水上戦闘機。</summary>

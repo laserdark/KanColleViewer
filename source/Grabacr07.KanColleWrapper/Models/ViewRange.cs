@@ -201,8 +201,7 @@ namespace Grabacr07.KanColleWrapper.Models
 		public override string Name => "33 式";
 
 		public override string Description =>
-			@"分岐点係数 × ((各スロットの装備の索敵値 + 改修効果) × 装備タイプ係数)の和 + (√各艦の素索敵値)の和
-- (司令部レベル × 0.4)の小数点以下切り上げ + 艦隊の空き数 × 2
+			@"分⁠岐⁠点⁠係⁠数 × ((各⁠ス⁠ロ⁠ッ⁠ト⁠の⁠装⁠備⁠の⁠索⁠敵⁠値 + 改⁠修⁠効⁠果) × 装⁠備⁠タ⁠イ⁠プ⁠係⁠数)の⁠和 + (√⁠各⁠艦⁠の⁠素⁠索⁠敵⁠値)の⁠和 - (司⁠令⁠部⁠レ⁠ベ⁠ル × 0.4)の⁠小⁠数⁠点⁠以⁠下⁠切⁠り⁠上⁠げ + 艦⁠隊⁠の⁠空⁠き⁠数 × 2
 ※艦隊の空き数は退避した艦を除いて算出";
 
 		public override bool HasCombinedSettings { get; } = true;
@@ -236,7 +235,7 @@ namespace Grabacr07.KanColleWrapper.Models
 
 			var nodefactor = KanColleClient.Current.Settings.ViewRangeCalcNodeFactor;
 
-			return nodefactor * itemScore + shipScore - admiralScore + vacancyScore;
+			return nodefactor * itemScore + shipScore - (isCombined ? 2 : 1) * admiralScore + vacancyScore;
 		}
 
 		private Ship[] GetTargetShips(Fleet[] fleets)
@@ -286,11 +285,13 @@ namespace Grabacr07.KanColleWrapper.Models
 			switch (type)
 			{
 				case SlotItemType.小口径主砲:
+				case SlotItemType.中口径主砲:
 				case SlotItemType.艦上戦闘機:
 				case SlotItemType.艦上爆撃機:
 				case SlotItemType.小型電探:
 				case SlotItemType.大型電探:
-				case SlotItemType.ソナー: // 推測する
+				case SlotItemType.ソナー:
+				case SlotItemType.特殊潜航艇:
 				case SlotItemType.オートジャイロ:
 				case SlotItemType.対潜哨戒機:
 				case SlotItemType.探照灯:

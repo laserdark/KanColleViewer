@@ -57,6 +57,9 @@ namespace Grabacr07.KanColleViewer.Models.Settings
 		public static SerializableProperty<bool> ClearCacheOnNextStartup { get; }
 			= new SerializableProperty<bool>(GetKey(), Providers.Local) { AutoSave = true, };
 
+		public static SerializableProperty<bool> IsHighFrameRate { get; }
+			= new SerializableProperty<bool>(GetKey(), Providers.Roaming, true);
+
 		private static string GetKey([CallerMemberName] string propertyName = "")
 		{
 			return nameof(GeneralSettings) + "." + propertyName;

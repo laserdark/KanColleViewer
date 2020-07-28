@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -84,6 +84,14 @@ namespace Grabacr07.KanColleViewer.ViewModels.Settings
 
 		#endregion
 
+		private bool _IsHighFrameRate;
+
+		public bool IsHighFrameRate
+		{
+			get => GeneralSettings.IsHighFrameRate.Value;
+			set => GeneralSettings.IsHighFrameRate.Value = value;
+		}
+
 		private SettingsViewModel()
 		{
 			this.ScreenshotSettings = new ScreenshotSettingsViewModel().AddTo(this);
@@ -114,15 +122,13 @@ namespace Grabacr07.KanColleViewer.ViewModels.Settings
 				});
 
 			this.ViewRangeSettingsCollection = ViewRangeCalcLogic.Logics.ToList();
-			this.SelectedViewRangeCalcType = this.ViewRangeSettingsCollection
-				.FirstOrDefault(x => x.Id == KanColleSettings.ViewRangeCalcType)
-				?? this.ViewRangeSettingsCollection.First();
+			this.SelectedViewRangeCalcType = this.ViewRangeSettingsCollection.Last();
 
 			this.LoadedPlugins = new List<PluginViewModel>(
 				PluginService.Current.Plugins.Select(x => new PluginViewModel(x)));
 
 			this.FailedPlugins = new List<LoadFailedPluginViewModel>(
-				PluginService.Current.FailedPlugins.Select(x => new LoadFailedPluginViewModel(x)));
+				PluginService.Current.FailedPlugins.Select(x => new LoadFailedPluginViewModel(x)));			
 		}
 
 
