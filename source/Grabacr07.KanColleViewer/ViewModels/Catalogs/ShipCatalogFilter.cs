@@ -564,8 +564,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 					.Concat(areas)
 					.Select(x => new SallyAreaFilterChild(x, this))
 					.ToArray();
-				var areastmp = new SallyAreaFilterChild[0];
-				this.IsEnabled = (areastmp == SallyAreas) ? false : true;
+				this.IsEnabled = true;
 			}
 
 			this.Update();
