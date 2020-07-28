@@ -454,8 +454,9 @@ namespace Grabacr07.KanColleWrapper
 				{
 					if (this.CombinedFleet == null) return;
 					var ships = this.CombinedFleet.Fleets.SelectMany(f => f.Ships).ToArray();
+					var count = this.CombinedFleet.Fleets.GetLength(0);
 					evacuationOfferedShipIds = x.api_escape.api_escape_idx.Select(idx => ships[idx - 1].Id).ToArray();
-					towOfferedShipIds = x.api_escape.api_tow_idx.Select(idx => ships[idx - 1].Id).ToArray();
+					towOfferedShipIds = x.api_escape.api_tow_idx.Select(idx => ships[count + (idx - 1) % 6].Id).ToArray();
 				});
 			proxy.api_req_combined_battle_goback_port
 				.Subscribe(_ =>
