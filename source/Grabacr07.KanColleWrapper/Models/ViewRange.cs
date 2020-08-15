@@ -263,9 +263,10 @@ namespace Grabacr07.KanColleWrapper.Models
 				case SlotItemType.水上爆撃機:
 					return Math.Sqrt(item.Level) * 1.15;
 
-				case SlotItemType.水上偵察機:
 				case SlotItemType.艦上偵察機:
 				case SlotItemType.艦上偵察機_II:
+				case SlotItemType.大型飛行艇:
+				case SlotItemType.水上偵察機:
 					return Math.Sqrt(item.Level) * 1.2;
 
 				case SlotItemType.小型電探:
@@ -284,29 +285,29 @@ namespace Grabacr07.KanColleWrapper.Models
 		{
 			switch (type)
 			{
-				case SlotItemType.小口径主砲:
-				case SlotItemType.中口径主砲:
 				case SlotItemType.艦上戦闘機:
 				case SlotItemType.艦上爆撃機:
-				case SlotItemType.小型電探:
-				case SlotItemType.大型電探:
-				case SlotItemType.ソナー:
-				case SlotItemType.特殊潜航艇:
-				case SlotItemType.オートジャイロ:
-				case SlotItemType.対潜哨戒機:
-				case SlotItemType.探照灯:
-				case SlotItemType.潜水艦魚雷:
-				case SlotItemType.司令部施設:
-				case SlotItemType.航空要員:
-				case SlotItemType.水上艦要員:
-				case SlotItemType.大型ソナー:
-				case SlotItemType.大型飛行艇:
-				case SlotItemType.大型探照灯:
 				case SlotItemType.水上戦闘機:
-				case SlotItemType.潜水艦装備:
+				case SlotItemType.大型飛行艇:
+				case SlotItemType.対潜哨戒機:
+				case SlotItemType.オートジャイロ:
 				case SlotItemType.噴式戦闘機: // 未実装なのでﾃｷﾄｰ
 				case SlotItemType.噴式戦闘爆撃機:
+				case SlotItemType.小口径主砲:
+				case SlotItemType.中口径主砲:
+				case SlotItemType.小型電探:
+				case SlotItemType.大型電探:
 				case SlotItemType.大型電探_II:
+				case SlotItemType.潜水艦装備:
+				case SlotItemType.潜水艦魚雷:
+				case SlotItemType.ソナー:
+				case SlotItemType.大型ソナー:
+				case SlotItemType.特殊潜航艇:
+				case SlotItemType.探照灯:
+				case SlotItemType.大型探照灯:
+				case SlotItemType.航空要員:
+				case SlotItemType.水上艦要員:
+				case SlotItemType.司令部施設:
 					return 0.6;
 
 				case SlotItemType.艦上攻撃機:
