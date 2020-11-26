@@ -28,6 +28,10 @@ namespace Grabacr07.KanColleViewer.Models.Cef
 				BrowserSubprocessPath = Path.Combine(cefDirectory, "CefSharp.BrowserSubprocess.exe"),
 				CachePath = CefBridge.CachePath,
 			};
+			//cefSettings.CefCommandLineArgs.Add("show-fps-counter");
+
+			cefSettings.SetOffScreenRenderingBestPerformanceArgs();
+			cefSettings.CefCommandLineArgs.Add("disable-threaded-scrolling");
 			cefSettings.CefCommandLineArgs.Add("disable-features", "AudioServiceOutOfProcess");
 			cefSettings.CefCommandLineArgs.Add("proxy-server", Settings.NetworkSettings.LocalProxySettingsString);
 
