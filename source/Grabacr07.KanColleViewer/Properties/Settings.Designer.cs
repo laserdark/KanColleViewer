@@ -63,8 +63,8 @@ namespace Grabacr07.KanColleViewer.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://raw.githubusercontent.com/laserdark/KanColleToolsetResources/master/KanCo" +
-            "lleViewer/sally.json")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://cdn.jsdelivr.net/gh/laserdark/KanColleToolsetResources@master/KanColleVie" +
+            "wer/sally.json")]
         public string SallyAreaSource {
             get {
                 return ((string)(this["SallyAreaSource"]));
