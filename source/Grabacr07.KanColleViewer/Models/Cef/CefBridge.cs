@@ -31,7 +31,7 @@ namespace Grabacr07.KanColleViewer.Models.Cef
 			//cefSettings.CefCommandLineArgs.Add("show-fps-counter");
 
 			cefSettings.CefCommandLineArgs.Add("disable-threaded-scrolling");
-			cefSettings.CefCommandLineArgs.Add("disable-features", "AudioServiceOutOfProcess");
+			cefSettings.CefCommandLineArgs.Add("disable-features", "AudioServiceOutOfProcess,CalculateNativeWinOcclusion");
 			cefSettings.CefCommandLineArgs.Add("proxy-server", Settings.NetworkSettings.LocalProxySettingsString);
 
 			CefSharpSettings.SubprocessExitIfParentProcessClosed = true;
