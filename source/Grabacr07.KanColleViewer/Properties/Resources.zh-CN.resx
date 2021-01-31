@@ -160,7 +160,7 @@
     <value>该建造坞被锁定</value>
   </data>
   <data name="Dockyard_NotificationMessage" xml:space="preserve">
-    <value>工厂中第 {0} 个建造坞的{1}建造完毕。</value>
+    <value>工厂中第 {0} 个建造坞的「{1}」建造完毕。</value>
   </data>
   <data name="Dockyard_NotificationMessage_Title" xml:space="preserve">
     <value>建造完毕</value>
