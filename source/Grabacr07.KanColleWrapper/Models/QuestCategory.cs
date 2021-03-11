@@ -55,7 +55,7 @@ namespace Grabacr07.KanColleWrapper.Models
 		Sortie2 = 8,
 
 		/// <summary>
-		/// その他。
+		/// 出撃任務。
 		/// </summary>
 		Sortie3 = 9,
 

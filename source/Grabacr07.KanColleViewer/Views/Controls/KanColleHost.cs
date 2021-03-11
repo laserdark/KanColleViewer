@@ -46,7 +46,7 @@ namespace Grabacr07.KanColleViewer.Views.Controls
 			DependencyProperty.Register(nameof(WebBrowser), typeof(ChromiumWebBrowser), typeof(KanColleHost), new UIPropertyMetadata(null, WebBrowserPropertyChangedCallback));
 
 		private static void WebBrowserPropertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
-		{		
+		{
 			var instance = (KanColleHost)d;
 			var newBrowser = (ChromiumWebBrowser)e.NewValue;
 			if (GeneralSettings.IsHighFrameRate) newBrowser.BrowserSettings.WindowlessFrameRate = 60;

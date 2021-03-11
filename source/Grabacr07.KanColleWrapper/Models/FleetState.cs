@@ -42,7 +42,7 @@ namespace Grabacr07.KanColleWrapper.Models
 		}
 
 		#endregion
-		
+
 		#region TotalLevel 変更通知プロパティ
 
 		private int _TotalLevel;
@@ -409,7 +409,7 @@ namespace Grabacr07.KanColleWrapper.Models
 			var logic = ViewRangeCalcLogic.Get(KanColleClient.Current.Settings.ViewRangeCalcType);
 			this.ViewRange = logic.Calc(this.source);
 			this.ViewRangeCalcType = logic.Name;
-			
+
 			this.Calculated?.Invoke(this, new EventArgs());
 		}
 

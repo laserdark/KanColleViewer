@@ -311,7 +311,7 @@ namespace Grabacr07.KanColleWrapper
 
 				var fleet = this.Fleets.Values.FirstOrDefault(x => x.Ships.Any(y => y.Id == ship.Id));
 				if (fleet == null) return;
-				
+
 				fleet.State.Calculate();
 			}
 			catch (Exception ex)
@@ -418,7 +418,7 @@ namespace Grabacr07.KanColleWrapper
 
 				foreach (var ship in ships)
 				{
-					if (slotDest) this.homeport.Itemyard.RemoveFromShip(ship);			
+					if (slotDest) this.homeport.Itemyard.RemoveFromShip(ship);
 
 					this.Ships.Remove(ship);
 				}

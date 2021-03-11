@@ -128,7 +128,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Settings
 				PluginService.Current.Plugins.Select(x => new PluginViewModel(x)));
 
 			this.FailedPlugins = new List<LoadFailedPluginViewModel>(
-				PluginService.Current.FailedPlugins.Select(x => new LoadFailedPluginViewModel(x)));			
+				PluginService.Current.FailedPlugins.Select(x => new LoadFailedPluginViewModel(x)));
 		}
 
 

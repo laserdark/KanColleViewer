@@ -629,7 +629,7 @@
 								   Style="{DynamicResource EmphaticTextStyleKey}"
 								   VerticalAlignment="Bottom"
 								   Margin="4,2" />
-						
+
 						<TextBlock Grid.Row="3"
 								   Grid.Column="0"
 								   Style="{DynamicResource DefaultTextStyleKey}"
