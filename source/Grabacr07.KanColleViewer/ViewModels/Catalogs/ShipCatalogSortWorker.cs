@@ -29,6 +29,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 		public static readonly SortableColumn ViewRangeColumn = new SortableColumn { Name = "索敵", KeySelector = x => x.ViewRange, DefaultIsDescending = true, };
 		public static readonly SortableColumn ASWColumn = new SortableColumn { Name = "対潜", KeySelector = x => x.ASW, DefaultIsDescending = true, };
 		public static readonly SortableColumn TimeToRepairColumn = new SortableColumn { Name = "修復時間", KeySelector = x => x.TimeToRepair.Ticks, DefaultIsDescending = true, };
+		public static readonly SortableColumn SpeedColumn = new SortableColumn { Name = "速力", KeySelector = x => (int)x.Speed, DefaultIsDescending = true, };
 
 		public static SortableColumn[] Columns { get; set; }
 
@@ -51,6 +52,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 				ViewRangeColumn,
 				ASWColumn,
 				TimeToRepairColumn,
+				SpeedColumn,
 			};
 		}
 

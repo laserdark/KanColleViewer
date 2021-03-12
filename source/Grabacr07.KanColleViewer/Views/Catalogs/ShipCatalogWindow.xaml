@@ -848,7 +848,7 @@
 							<GridViewColumn Width="45">
 								<GridViewColumn.Header>
 									<metro2:SortButton MethodName="Sort"
-													   MethodParameter="{x:Static viewModels:ShipCatalogSortWorker.ASWColumn}">
+													   MethodParameter="{x:Static viewModels:ShipCatalogSortWorker.SpeedColumn}">
 										<TextBlock Text="速力"
 												   ToolTip="{Binding Resources.ShipCatalogWindow_ColumnHeader_Tooltip, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 									</metro2:SortButton>
