@@ -181,15 +181,16 @@
 										</x:Array>
 									</metro2:CallMethodButton.MethodParameter>
 								</metro2:CallMethodButton>
-								<metro2:CallMethodButton Content="軽巡・雷巡">
+								<metro2:CallMethodButton Content="軽巡級">
 									<metro2:CallMethodButton.MethodParameter>
 										<x:Array Type="s:Int32">
 											<s:Int32>3</s:Int32>
 											<s:Int32>4</s:Int32>
+											<s:Int32>21</s:Int32>
 										</x:Array>
 									</metro2:CallMethodButton.MethodParameter>
 								</metro2:CallMethodButton>
-								<metro2:CallMethodButton Content="重巡・航巡">
+								<metro2:CallMethodButton Content="重巡級">
 									<metro2:CallMethodButton.MethodParameter>
 										<x:Array Type="s:Int32">
 											<s:Int32>5</s:Int32>
@@ -197,7 +198,7 @@
 										</x:Array>
 									</metro2:CallMethodButton.MethodParameter>
 								</metro2:CallMethodButton>
-								<metro2:CallMethodButton Content="戦艦">
+								<metro2:CallMethodButton Content="戦艦級">
 									<metro2:CallMethodButton.MethodParameter>
 										<x:Array Type="s:Int32">
 											<s:Int32>8</s:Int32>
@@ -224,11 +225,14 @@
 										</x:Array>
 									</metro2:CallMethodButton.MethodParameter>
 								</metro2:CallMethodButton>
-								<metro2:CallMethodButton Content="航戦・航巡">
+								<metro2:CallMethodButton Content="補助艦艇">
 									<metro2:CallMethodButton.MethodParameter>
 										<x:Array Type="s:Int32">
-											<s:Int32>6</s:Int32>
-											<s:Int32>10</s:Int32>
+											<s:Int32>16</s:Int32>
+											<s:Int32>17</s:Int32>
+											<s:Int32>19</s:Int32>
+											<s:Int32>20</s:Int32>
+											<s:Int32>22</s:Int32>
 										</x:Array>
 									</metro2:CallMethodButton.MethodParameter>
 								</metro2:CallMethodButton>
